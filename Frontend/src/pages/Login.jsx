@@ -71,6 +71,9 @@ export default function Login() {
       localStorage.setItem("login","true");
       localStorage.setItem("username",result.data.username);
       localStorage.setItem("password",result.data.password);
+      if(result.data.username=="irfan" && result.data.password=="070"){
+        localStorage.setItem("isAdmin",true);
+      }
         navigate('/home');
       reset();
       setLoginStatus(false);
