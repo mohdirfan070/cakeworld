@@ -60,7 +60,7 @@ let[theme,setTheme]=useState( localStorage.getItem("theme") || "valentine");
   <Link to={"/home"}  className="btn absolute left-14  bg-base-100 text-2xl font-extrabold " style={{fontFamily:"Dancing Script"}} >CakeWorld</Link>
   </div>
 
-  <label className="swap swap-rotate">
+  <label className="swap swap-rotate ">
   
   {/* this hidden checkbox controls the state */}
   <input type="checkbox"   onChange={handleTheme} />
@@ -75,7 +75,7 @@ let[theme,setTheme]=useState( localStorage.getItem("theme") || "valentine");
 
 {
 
-  (login)? <div className="flex-none">
+  (login)? <div className="flex-none ">
   <div className="dropdown dropdown-end">
     <div tabIndex={0} role="button" className="btn btn-ghost btn-circle">
       <div className="indicator">
@@ -111,7 +111,7 @@ let[theme,setTheme]=useState( localStorage.getItem("theme") || "valentine");
       <li onClick={handleLogout}> <a > Logout</a></li>
     </ul>
   </div>
-</div>:<h2 onClick={handlelogin} className='btn font-semibold text-md'>Login</h2>
+</div>:<h2 onClick={handlelogin} className='btn ml-3 font-semibold text-md'>Login</h2>
 
 }
 
