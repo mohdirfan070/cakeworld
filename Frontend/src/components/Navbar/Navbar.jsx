@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom';
-
+import { useNavigate } from 'react-router-dom';
 
 
 function Navbar() {
@@ -24,12 +24,13 @@ let[theme,setTheme]=useState( localStorage.getItem("theme") || "valentine");
   //  localStorage.setItem("login","true");
   //  setLogin(true);
   // }
-
+const navigate = useNavigate();
   const handleLogout = ()=>{
     localStorage.setItem("login","");
     localStorage.setItem("username","");
     localStorage.setItem("password","");
     setLogin(false);
+    navigate("/home");
   }
 
   useEffect(()=>{
