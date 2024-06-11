@@ -73,8 +73,8 @@ export default function Products() {
           </div>
         </div>
       </dialog>
-
-      <div className="cards my-4 min-h-lg  flex justify-center align-top flex-wrap">
+<div className="cover-div min-h-screen">
+      <div className="cards my-4   flex justify-center align-top flex-wrap">
         {
           (gotData)?
         gotData.map((ele, i) => (
@@ -106,7 +106,7 @@ export default function Products() {
         :<span className="loading loading-bars loading-lg"></span>
         }
       </div>
-
+</div>
       <Footer />
     </>
   );
