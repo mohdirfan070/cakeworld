@@ -63,7 +63,7 @@ export default function Login() {
         setLoginStatus(true);
         //  console.log(inpData);
       let result = await axios.post(
-        "http://localhost:8080/api/login",
+        "https://cakeworld.onrender.com/api/login",
         inpData
       );
       setLogin(true);
