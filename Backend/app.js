@@ -26,7 +26,7 @@ app.use("/home", homeRoute);
 app.use("/addcustomer", addCustomerRoute);
 app.use("/api/addproduct", addProductRoute);
 app.use("/api/products",productRoute);
-app.use("/login",loginRoute);
+app.use("/api/login",loginRoute);
 
 
 

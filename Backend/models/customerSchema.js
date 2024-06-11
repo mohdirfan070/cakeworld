@@ -28,7 +28,7 @@ const customerSchema = new mongoose.Schema({
         type:Number,
     },
     cart:{
-        type:mongoose.Schema.Types.ObjectId;
+        type:mongoose.Schema.Types.ObjectId,
         ref:"Cart",
     }
 },{timestamps:{required:true}});

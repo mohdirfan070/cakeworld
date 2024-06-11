@@ -53,7 +53,7 @@ export default function Products() {
       <Navbar />
 
     {
-      (toast)?  <div className="toast toast-top fixed z-10 toast-center ">
+      (toast)?  <div className="toast toast-top fixed  z-10 toast-center ">
         <div className="alert bg-green-200   ">
           <span>Product added to Cart</span>
         </div>

@@ -23,11 +23,12 @@ let[theme,setTheme]=useState( localStorage.getItem("theme") || "valentine");
   const handlelogin = ()=>{
    localStorage.setItem("login","true");
    setLogin(true);
-
   }
 
   const handleLogout = ()=>{
     localStorage.setItem("login","");
+    localStorage.setItem("username","");
+    localStorage.setItem("password","");
     setLogin(false);
   }
 
