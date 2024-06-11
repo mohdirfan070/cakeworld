@@ -33,6 +33,7 @@ function Navbar() {
     localStorage.setItem("login", "");
     localStorage.setItem("username", "");
     localStorage.setItem("password", "");
+    localStorage.setItem("isAdmin", "");
     setLogin(false);
     navigate("/home");
   };
