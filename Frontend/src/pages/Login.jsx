@@ -43,6 +43,7 @@ export default function Login() {
     }
   };
   let reset = () => {
+    setLoginStatus(false);
     setInputData({
       name: "",
       username: "",
@@ -156,7 +157,7 @@ export default function Login() {
             />
 
   {
-    (loginStatus)?<span className="loading block mx-auto my-3 loading-spinner loading-sm">Submitting Data</span>:""
+    (loginStatus)?<span className="loading block mx-auto my-3 loading-spinner loading-sm">Submitting Data</span>:"User Saved Successfully!"
       }
 
 
