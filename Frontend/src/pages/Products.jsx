@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 export default function Products() {
   let [model, setModel] = useState(false);
   let [ toast,setToast]=useState(false);
-  let [gotData, setGotData] = useState([]);
+  let [gotData, setGotData] = useState(false);
 
   const fetchProducts = async () => {
     let result = await axios.get("https://cakeworld.onrender.com/api/products");
@@ -74,8 +74,10 @@ export default function Products() {
         </div>
       </dialog>
 
-      <div className="cards my-4  flex justify-center align-top flex-wrap">
-        {gotData.map((ele, i) => (
+      <div className="cards my-4 min-h-screen  flex justify-center align-top flex-wrap">
+        {
+          (gotData)?
+        gotData.map((ele, i) => (
           <React.Fragment key={i}>
             <div className="card card-compact overflow-hidden w-80 min-w-64 bg-base-100 m-12  m-2  shadow-xl">
               {/* <img src="ele.Image" alt="" /> */}
@@ -100,7 +102,9 @@ export default function Products() {
               </div>
             </div>
           </React.Fragment>
-        ))}
+        ))
+        :<span className="loading loading-bars loading-md"></span>
+        }
       </div>
 
       <Footer />

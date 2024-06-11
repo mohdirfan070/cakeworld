@@ -90,7 +90,7 @@ reset();
               className="input  border-neutral-400 block mb-3    "
               onChange={handleChange}
               value={inpData.price}
-              type="number"
+              type="text"
               name="price"
               placeholder="Price"
             />
