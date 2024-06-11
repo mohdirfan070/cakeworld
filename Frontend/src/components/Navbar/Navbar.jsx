@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
 
+
 function Navbar() {
   let [isAdmin, setIsAdmin] = useState(
     localStorage.getItem("isAdmin") || false
@@ -36,6 +37,7 @@ function Navbar() {
     localStorage.setItem("isAdmin", "");
     setLogin(false);
     navigate("/home");
+    
   };
 
   useEffect(() => {}, [login]);
