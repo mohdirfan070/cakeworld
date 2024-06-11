@@ -156,8 +156,8 @@ export default function Login() {
               placeholder="Pin code"
             />
 
-  {
-    (loginStatus)?<span className="loading block mx-auto my-3 loading-spinner loading-sm">Submitting Data</span>:<span className="mx-auto my-3 ">User Saved Successfully!</span>
+       {
+    (loginStatus)?<span className="loading block mx-auto my-3 loading-spinner loading-sm">Submitting Data</span>:""
       }
 
 
