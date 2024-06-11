@@ -74,7 +74,7 @@ export default function Products() {
         </div>
       </dialog>
 
-      <div className="cards my-4 min-h-screen  flex justify-center align-top flex-wrap">
+      <div className="cards my-4 min-h-lg  flex justify-center align-top flex-wrap">
         {
           (gotData)?
         gotData.map((ele, i) => (
