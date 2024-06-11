@@ -31,7 +31,7 @@ export default function Login() {
   let handleSubmit = async (e) => {
     if (inpData.username == "irfan" && inpData.password == "0") {
       console.log(inpData);
-      let result = await axios.post("http://localhost:8080/api/login", inpData);
+      let result = await axios.post("https://cakeworld.onrender.com/api/login", inpData);
       console.log(result);
       reset();
     } else {

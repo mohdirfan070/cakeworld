@@ -11,7 +11,7 @@ export default function Products() {
   let [gotData, setGotData] = useState([]);
 
   const fetchProducts = async () => {
-    let result = await axios.get("http://localhost:8080/api/products");
+    let result = await axios.get("https://cakeworld.onrender.com/api/products");
     let arr = result.data;
     setGotData([...arr]);
     // console.log(result.data);
