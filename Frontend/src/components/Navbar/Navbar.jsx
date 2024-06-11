@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-
+import { useNavigate } from 'react-router-dom';
 
 
 
@@ -18,12 +18,12 @@ let[theme,setTheme]=useState( localStorage.getItem("theme") || "valentine");
   document.getElementsByTagName("html")[0].setAttribute("data-theme",theme);
 // let html =   console.log(html);
 // html
-
+  const navigate  = useNavigate();
   let[login,setLogin]=useState(localStorage.getItem("login")||false);
-  const handlelogin = ()=>{
-   localStorage.setItem("login","true");
-   setLogin(true);
-  }
+  // const handlelogin = ()=>{
+  //  localStorage.setItem("login","true");
+  //  setLogin(true);
+  // }
 
   const handleLogout = ()=>{
     localStorage.setItem("login","");
@@ -112,7 +112,7 @@ let[theme,setTheme]=useState( localStorage.getItem("theme") || "valentine");
       <li onClick={handleLogout}> <a > Logout</a></li>
     </ul>
   </div>
-</div>:<h2 onClick={handlelogin} className='btn ml-3 font-semibold text-md'>Login</h2>
+</div>:<h2 onClick={()=>navigate("/login")} className='btn ml-3 font-semibold text-md'>Login</h2>
 
 }
 
