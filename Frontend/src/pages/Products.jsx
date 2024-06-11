@@ -73,7 +73,7 @@ export default function Products() {
           </div>
         </div>
       </dialog>
-<div className="cover-div min-h-screen">
+<div className="cover-div min-h-md">
       <div className="cards my-4   flex justify-center align-top flex-wrap">
         {
           (gotData)?
