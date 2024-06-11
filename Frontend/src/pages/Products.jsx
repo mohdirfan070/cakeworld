@@ -103,7 +103,7 @@ export default function Products() {
             </div>
           </React.Fragment>
         ))
-        :<span className="loading loading-bars loading-md"></span>
+        :<span className="loading loading-bars loading-lg"></span>
         }
       </div>
 
