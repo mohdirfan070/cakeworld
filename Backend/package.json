@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "cls && npx nodemon app.js",
+    "start": "cls && node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Mohammed Irfan",
