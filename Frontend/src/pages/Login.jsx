@@ -157,7 +157,7 @@ export default function Login() {
             />
 
   {
-    (loginStatus)?<span className="loading block mx-auto my-3 loading-spinner loading-sm">Submitting Data</span>:"User Saved Successfully!"
+    (loginStatus)?<span className="loading block mx-auto my-3 loading-spinner loading-sm">Submitting Data</span>:<span className="mx-auto my-3 ">User Saved Successfully!</span>
       }
 
 
