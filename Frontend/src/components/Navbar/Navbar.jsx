@@ -48,7 +48,7 @@ function Navbar() {
     await axios
       .post("http://localhost:8080/api/getuserdata", sendData)
       .then((result) => {
-        console.log(result);
+        // console.log(result);
         setUser(result.data);
       })
       .catch((err) => {
