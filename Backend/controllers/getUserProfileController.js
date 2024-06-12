@@ -1,12 +1,12 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const Customer = require("../models/customerSchema.js");
-const getUsers = async (req,res)=>{
+const getUserProfile = async (req,res)=>{
   
-    let {username ,password ,id} = req.body  ;
+    let {id} = req.body  ;
    
         try {
-            let result = await Customer.findOne({username ,password} );
+            let result = await Customer.findOne({id} );
             console.log(result);
             res.status(200).json(result);
         } catch (error) {
@@ -15,4 +15,4 @@ const getUsers = async (req,res)=>{
    
       
 }
-module.exports = {getUsers};
+module.exports = {getUserProfile};

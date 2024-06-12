@@ -46,10 +46,10 @@ function Navbar() {
     let password = localStorage.getItem("password");
     let sendData = { username, password };
     await axios
-      .post("http://localhost:8080/api/getuserdata", sendData)
+      .post("https://cakeworld.onrender.com/api/getuserdata", sendData)
       .then((result) => {
-        // console.log(result);
-        setUser(result.data);
+        //  console.log(result);
+        setUser({...result.data});
       })
       .catch((err) => {
         console.log(err);
@@ -207,9 +207,9 @@ function Navbar() {
                 className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
               >
                 <li>
-                  <Link to={"/profile"} className="justify-between">
+                  <Link to={`/profile/${user._id}`} className="justify-between">
                     Profile
-                    <span className="badge">New</span>
+                    {/* <span className="badge">New</span> */}
                   </Link>
                 </li>
                 <li>

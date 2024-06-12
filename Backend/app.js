@@ -20,6 +20,7 @@ const addProductRoute = require('./routes/addProductRoute.js');
 const productRoute = require('./routes/productsRoute.js');
 const loginRoute = require('./routes/loginRoute.js');
 const getUserRoute = require('./routes/getUserRoute.js');
+const getUserProfileRoute = require('./routes/getUserProfileRoute.js');
 //All Middlewears
 app.use("/", homeRoute);
 app.use("/home", homeRoute);
@@ -28,7 +29,7 @@ app.use("/api/addproduct", addProductRoute);
 app.use("/api/products",productRoute);
 app.use("/api/login",loginRoute);
 app.use("/api/getuserdata",getUserRoute);
-
+app.use("/api/getuserprofile",getUserProfileRoute);
 
 const PORT = process.env.PORT;
 app.listen(PORT, (req, res) => {
