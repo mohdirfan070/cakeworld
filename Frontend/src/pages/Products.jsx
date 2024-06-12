@@ -15,7 +15,7 @@ export default function Products() {
   const fetchProducts = async () => {
     let result = await axios.get("https://cakeworld.onrender.com/api/products");
     let arr = result.data;
-    setGotData([...arr]);
+      setGotData([...arr]);
     // console.log(result.data);
   };
 
@@ -107,7 +107,7 @@ export default function Products() {
               </React.Fragment>
             ))
           ) : (
-            <span className="loading loading-bars loading-lg"></span>
+            <span className="loading loading-bars  loading-lg my-80 "></span>
           )}
         </div>
       </div>
