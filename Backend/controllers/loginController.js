@@ -5,7 +5,7 @@ const addUser = async (req, res) => {
     // console.log({ name, username, password, mobileNumber, address, pincode });
 
     if(await Customer.findOne({username})){
-        let result =  await Customer.findOne({username,password});
+        let result =  await Customer.findOne({username});
         res.status(200).json(result);
     }else{
         const newCustomer = await Customer(
