@@ -54,19 +54,6 @@ export default function Login() {
     });
   };
 
-  let [user, setUsers] = useState(null);
-
-  const getUsers = async () => {
-    try {
-      let result = await axios.get("https://cakeworld.render.app/api/getusers");
-      setUsers(result);
-      console.log(user);
-    } catch (error) {}
-  };
-
-  useEffect(() => {
-    getUsers();
-  }, user);
 
   const navigate = useNavigate();
 

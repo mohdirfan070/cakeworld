@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-
-
+import axios from "axios";
 
 function Navbar() {
   let [isAdmin, setIsAdmin] = useState(
@@ -20,6 +19,7 @@ function Navbar() {
       localStorage.setItem("theme", "valentine");
     }
   };
+
   document.getElementsByTagName("html")[0].setAttribute("data-theme", theme);
   // let html =   console.log(html);
   // html
@@ -37,10 +37,30 @@ function Navbar() {
     localStorage.setItem("isAdmin", "");
     setLogin(false);
     navigate("/home");
-    
   };
 
   useEffect(() => {}, [login]);
+  const [user, setUser] = useState({});
+  const getUser = async () => {
+    let username = localStorage.getItem("username");
+    let password = localStorage.getItem("password");
+    let sendData = { username, password };
+    await axios
+      .post("http://localhost:8080/api/getuserdata", sendData)
+      .then((result) => {
+        console.log(result);
+        setUser(result.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  useEffect(() => {
+    if (localStorage.getItem("username")) {
+      getUser();
+    }
+  }, []);
 
   return (
     <>
@@ -84,9 +104,13 @@ function Navbar() {
               <li>
                 <Link to={"/about"}>About</Link>
               </li>
-              {
-                (isAdmin)?<li><Link to={"/addproducts"}>Add Products</Link></li>:""
-              }
+              {isAdmin ? (
+                <li>
+                  <Link to={"/addproducts"}>Add Products</Link>
+                </li>
+              ) : (
+                ""
+              )}
             </ul>
           </div>
         </div>
@@ -173,8 +197,8 @@ function Navbar() {
               >
                 <div className="w-10 rounded-full">
                   <img
-                    alt="Tailwind CSS Navbar component"
-                    src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
+                    alt="Profile Image"
+                    src={ "https://static.vecteezy.com/system/resources/previews/000/662/785/original/man-face-cartoon-vector.jpg" || "https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"}
                   />
                 </div>
               </div>

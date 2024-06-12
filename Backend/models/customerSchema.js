@@ -18,7 +18,7 @@ const customerSchema = new mongoose.Schema({
     },
     profileImg:{
         type:String,
-        default:"https://static.vecteezy.com/system/resources/previews/005/544/718/original/profile-icon-design-free-vector.jpg",   
+        default:"https://static.vecteezy.com/system/resources/previews/000/662/785/original/man-face-cartoon-vector.jpg" ,   
     },
     address:{
         type:String,
