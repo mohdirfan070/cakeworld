@@ -82,7 +82,7 @@ export default function Products() {
           {gotData ? (
             gotData.map((ele, i) => (
               <React.Fragment key={i}>
-                <div className="card card-compact overflow-hidden w-80 min-w-64 bg-base-100   m-2  shadow-xl">
+                <div className="card card-compact overflow-hidden w-80 min-w-64 bg-base-100   m-2    bg-neutral-content btn-ghost transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-xl" >
                   {/* <img src="ele.Image" alt="" /> */}
                   <img
                     className="rounded-lg  h-44 "
@@ -97,7 +97,7 @@ export default function Products() {
                     <div className="card-actions justify-end">
                       <button
                         onClick={handleOrder}
-                        className="btn   btn-primary outline"
+                        className="btn    bg-neutral-content btn-outline"
                       >
                         Buy Now
                       </button>
