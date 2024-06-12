@@ -44,7 +44,7 @@ function Navbar() {
 
   return (
     <>
-      <div className="navbar  bg-neutral  ">
+      <div className="navbar fixed top-0 z-10 bg-neutral  ">
         <div className="navbar-start ">
           <div className="dropdown">
             <div
