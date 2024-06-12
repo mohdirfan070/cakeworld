@@ -21,6 +21,11 @@ const productRoute = require('./routes/productsRoute.js');
 const loginRoute = require('./routes/loginRoute.js');
 const getUserRoute = require('./routes/getUserRoute.js');
 const getUserProfileRoute = require('./routes/getUserProfileRoute.js');
+const updateUserRoute = require('./routes/updateUserRoute.js');
+
+
+
+
 //All Middlewears
 app.use("/", homeRoute);
 app.use("/home", homeRoute);
@@ -30,7 +35,7 @@ app.use("/api/products",productRoute);
 app.use("/api/login",loginRoute);
 app.use("/api/getuserdata",getUserRoute);
 app.use("/api/getuserprofile",getUserProfileRoute);
-
+app.use("/api/updateuser",updateUserRoute);
 const PORT = process.env.PORT;
 app.listen(PORT, (req, res) => {
     console.log(`Listennig on PORT:${PORT}`);
