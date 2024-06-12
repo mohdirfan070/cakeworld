@@ -97,7 +97,7 @@ export default function Products() {
                     <div className="card-actions justify-end">
                       <button
                         onClick={handleOrder}
-                        className="btn    bg-neutral-content btn-outline"
+                        className="btn    bg-neutral-content btn-outline focus:bg-neutral"
                       >
                         Buy Now
                       </button>
