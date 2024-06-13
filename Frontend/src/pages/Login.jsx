@@ -5,8 +5,9 @@ import Footer from "../components/Footer/Footer";
 import { useNavigate } from "react-router-dom";
 
 export default function Login() {
+  const femaleProfileURL = "https://thumbs.dreamstime.com/b/female-avatar-profile-icon-round-woman-face-flat-vector-illustration-female-avatar-profile-icon-round-woman-face-102767911.jpg";
   let [loginStatus, setLoginStatus] = useState(false);
-
+  let [gender , setGender] = useState("male");
   let [inpData, setInputData] = useState({
     name: "",
     username: "",
@@ -14,6 +15,8 @@ export default function Login() {
     mobileNumber: "",
     address: "",
     pincode: "",
+    gender,
+    profileImg:"",
   });
   let [response, setRes] = useState(false);
   let [login, setLogin] = useState(localStorage.getItem("login") || false);
@@ -51,9 +54,10 @@ export default function Login() {
       mobileNumber: "",
       address: "",
       pincode: "",
+      gender,
+      profileImg:"",
     });
   };
-
 
   const navigate = useNavigate();
 
@@ -71,10 +75,7 @@ export default function Login() {
     } else {
       setLoginStatus(true);
       //  console.log(inpData);
-      let result = await axios.post(
-        "https://cakeworld.onrender.com/api/login",
-        inpData
-      );
+      let result = await axios.post("https://cakeworld.onrender.com/api/login", inpData);
       setLogin(true);
       localStorage.setItem("login", "true");
       localStorage.setItem("username", result.data.username);
@@ -91,6 +92,7 @@ export default function Login() {
   return (
     <>
       <Navbar />
+
       <div className="forms flex w-max gap-2 justify-center align-middle flex-wrap m-auto">
         {/* SignUp */}
         <div className="border-neutral p-12   border-2 max-w-fit rounded-md m-auto min-h-max bg-ghost my-4 mt-20">
@@ -151,6 +153,45 @@ export default function Login() {
                 name="mobileNumber"
                 placeholder="Mobile Number"
               />
+
+              <div className="form-control ">
+                <label  className=" cursor-pointer m-2">
+                  <span onClick={()=>{setGender("male") }} className="btn mx-4">Male</span>
+                  <input
+                    type="radio"
+                    name="gender"
+                    className="radio checked:bg-neutral-content-400"
+                    defaultChecked
+                  />
+                </label>
+              </div>
+              <div className="form-control">
+                <label className=" cursor-pointer m-2">
+                  <span onClick={()=>{setGender("female") , setInputData({...inpData,profileImg:femaleProfileURL}) }} className="btn mx-4">Female</span>
+                  <input
+                    type="radio"
+                    name="gender"
+                    className="radio checked:bg-neutral-content-400"
+                    
+                  />
+                </label>
+              </div>
+
+              {/* <select className=" input  border-neutral-400 block mb-3 min-w-max" name="gender" id="">
+              <option className="input" value="male">Male</option>
+              <option value="female">Female</option>
+            </select> */}
+
+              {/* <input
+                className="input  border-neutral-400 block mb-3 "
+                onChange={handleChange}
+                value={inpData.gender}
+                
+                // type="text"
+                // name="gender"
+                // placeholder="Gender"
+              /> */}
+
               <input
                 className="input  border-neutral-400 block mb-3 "
                 onChange={handleChange}

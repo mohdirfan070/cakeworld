@@ -19,16 +19,31 @@ export default function Products() {
     // console.log(result.data);
   };
 
-  const handleOrder = () => {
+  const handleOrder =async (e) => {
     if (localStorage.getItem("login")) {
+
+      const userData = {
+        username:localStorage.getItem("username"),
+        password:localStorage.getItem("password"),
+        productId:e.target.value,
+      }
+      console.log(userData);
+      try {
+          await axios.post("http://localhost:8080/additemtocart", userData ).then((result)=>{
+              
       setToast(true);
       // alert("Product Added to Cart Successfully!");
       setTimeout(() => {
         setToast(false);
       }, 1000);
+          })
+      } catch (error) {
+        console.log(error);
+      }
+
     } else {
       // setModel(true);
-      document.getElementById("my_modal_4").showModal();
+      document.getElementById("my_modal_2").showModal();
     }
   };
 
@@ -63,12 +78,14 @@ export default function Products() {
         ""
       )}
 
-      <dialog id="my_modal_4" className="modal">
+    
+        
+      <dialog id="my_modal_2" className="modal">
         <div className="modal-box w-11/12 max-w-lg">
           <h3 className="font-bold text-lg underline">Alert!</h3>
           <p className="py-4 font-medium">Please Login to make Orders</p>
           <div className="modal-action">
-            {/* if there is a button, it will close the modal */}
+            
             <Link to="/login">
               <h1 className="btn font-bold" onClick={handlelogin}>
                 Login
@@ -77,6 +94,8 @@ export default function Products() {
           </div>
         </div>
       </dialog>
+
+
       <div className="cover-div mt-20  min-h-lvh">
         <div className="cards my-4    flex justify-center align-center flex-wrap">
           {gotData ? (
@@ -96,7 +115,7 @@ export default function Products() {
                     <p>{ele.description}</p>
                     <div className="card-actions justify-end">
                       <button
-                        onClick={handleOrder}
+                        onClick={handleOrder} value={ele._id}
                         className="btn    bg-neutral-content btn-outline focus:bg-neutral focus:text-neutral-content"
                       >
                         Buy Now

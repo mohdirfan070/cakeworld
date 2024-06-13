@@ -39,7 +39,7 @@ function Navbar() {
     navigate("/home");
   };
 
-  useEffect(() => {}, [login]);
+  // useEffect(() => {}, [login]);
   const [user, setUser] = useState({});
   const getUser = async () => {
     let username = localStorage.getItem("username");
@@ -198,7 +198,7 @@ function Navbar() {
                 <div className="w-10 rounded-full">
                   <img
                     alt="Profile Image"
-                    src={ "https://static.vecteezy.com/system/resources/previews/000/662/785/original/man-face-cartoon-vector.jpg" || "https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"}
+                    src={ user.profileImg || "https://th.bing.com/th/id/OIP.B4Mr-qMsaGmPk6XR2T5wJAHaHO?rs=1&pid=ImgDetMain"}
                   />
                 </div>
               </div>
