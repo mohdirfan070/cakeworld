@@ -22,7 +22,7 @@ const loginRoute = require('./routes/loginRoute.js');
 const getUserRoute = require('./routes/getUserRoute.js');
 const getUserProfileRoute = require('./routes/getUserProfileRoute.js');
 const updateUserRoute = require('./routes/updateUserRoute.js');
-
+const addItemToCartRoute = require('./routes/addItemToCartRoute.js');
 
 
 
@@ -36,6 +36,13 @@ app.use("/api/login",loginRoute);
 app.use("/api/getuserdata",getUserRoute);
 app.use("/api/getuserprofile",getUserProfileRoute);
 app.use("/api/updateuser",updateUserRoute);
+app.use("/api/additemtocart",addItemToCartRoute);
+
+
+
+
+
+
 const PORT = process.env.PORT;
 app.listen(PORT, (req, res) => {
     console.log(`Listennig on PORT:${PORT}`);

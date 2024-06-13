@@ -29,14 +29,14 @@ export default function Products() {
       }
       console.log(userData);
       try {
-          await axios.post("http://localhost:8080/additemtocart", userData ).then((result)=>{
-              
+          await axios.put("https://cakeworld.onrender.com/api/additemtocart", userData ).then((result)=>{
+              console.log(result);
       setToast(true);
       // alert("Product Added to Cart Successfully!");
       setTimeout(() => {
         setToast(false);
       }, 1000);
-          })
+          });
       } catch (error) {
         console.log(error);
       }
