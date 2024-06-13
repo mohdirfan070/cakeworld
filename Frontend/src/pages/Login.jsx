@@ -16,7 +16,7 @@ export default function Login() {
     address: "",
     pincode: "",
     gender,
-    profileImg:"",
+    profileImg:"https://static.vecteezy.com/system/resources/previews/000/662/785/original/man-face-cartoon-vector.jpg",
   });
   let [response, setRes] = useState(false);
   let [login, setLogin] = useState(localStorage.getItem("login") || false);
@@ -55,7 +55,7 @@ export default function Login() {
       address: "",
       pincode: "",
       gender,
-      profileImg:"",
+      profileImg:"https://static.vecteezy.com/system/resources/previews/000/662/785/original/man-face-cartoon-vector.jpg",
     });
   };
 
