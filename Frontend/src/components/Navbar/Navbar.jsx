@@ -48,7 +48,7 @@ function Navbar() {
     await axios
       .post("https://cakeworld.onrender.com/api/getuserdata", sendData)
       .then((result) => {
-         console.log(result);
+         console.log(result.data);
         setUser({ ...result.data });
       })
       .catch((err) => {
