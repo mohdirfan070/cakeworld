@@ -174,7 +174,7 @@ function Navbar() {
                       {user.cart.length}
                     </span>
                   ) : (
-                    <span className="badge badge-sm indicator-item"> 3 </span>
+                    <span className="badge badge-sm indicator-item"> 0 </span>
                   )}
                 </div>
               </div>
