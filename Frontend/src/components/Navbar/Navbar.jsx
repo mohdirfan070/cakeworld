@@ -97,9 +97,12 @@ function Navbar() {
               <li>
                 <Link to={"/products"}>Products</Link>
               </li>
-              <li>
+              {
+                (login)? <li>
                 <Link to={"/orders"}>Orders</Link>
-              </li>
+              </li> : " "
+              }
+             
               <li>
                 <Link to={"/about"}>About</Link>
               </li>
@@ -149,7 +152,7 @@ function Navbar() {
         {login ? (
           <div className="flex-none ">
             <div className="dropdown dropdown-end">
-              <div
+              <div 
                 tabIndex={0}
                 role="button"
                 className="btn btn-ghost btn-circle"
@@ -193,9 +196,11 @@ function Navbar() {
                   {/* <span className="font-bold text-lg">3 Items</span> */}
                   <span className="text-info">Subtotal: ₹999</span>
                   <div className="card-actions">
-                    <button className="btn btn-primary btn-block">
+                    <Link to={"/cart"}>
+                    <button  className="btn btn-primary btn-block">
                       View cart
                     </button>
+                    </Link>
                   </div>
                 </div>
               </div>
