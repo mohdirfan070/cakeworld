@@ -186,8 +186,8 @@ function Navbar() {
                 <div className="card-body">
                   {user.cart ? (
                       <span className="font-bold text-lg"> {user.cart.length} Items</span>
-                  ) : (
-                    <span className="font-bold text-lg">3 Items</span>
+                  ) : ( " "
+                    // <span className="font-bold text-lg">0 Items</span>
                   )}
 
                   {/* <span className="font-bold text-lg">3 Items</span> */}
