@@ -28,7 +28,7 @@ export default function Profile() {
 
   useEffect(() => {
     loadUser();
-  }, []);
+  });
 
   const handleChange = (e) => {
     setError(false);
