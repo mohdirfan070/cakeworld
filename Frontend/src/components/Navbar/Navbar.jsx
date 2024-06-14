@@ -57,9 +57,9 @@ function Navbar() {
 
   useEffect(() => {
     if (localStorage.getItem("username")) {
-      getUser();
+      setInterval(()=>{getUser()},2000)
     }
-  });
+  },[]);
 
   return (
     <>

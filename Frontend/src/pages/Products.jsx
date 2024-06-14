@@ -27,12 +27,13 @@ export default function Products() {
         password:localStorage.getItem("password"),
         productId:e.target.value,
       }
-      console.log(userData);
+      // console.log(userData);
       try {
-          await axios.post("http://localhost:8080/api/additemtocart", userData ).then((result)=>{
+          await axios.post("https://cakeworld.onrender.com/api/additemtocart", userData ).then((result)=>{
               console.log(result.data);
       setToast(true);
-      // alert("Product Added to Cart Successfully!");
+      fetchProducts();
+         // alert("Product Added to Cart Successfully!");
       setTimeout(() => {
         setToast(false);
       }, 1000);
@@ -58,11 +59,11 @@ export default function Products() {
     setLogin(false);
   };
 
-  useEffect(() => {}, [login]);
+
 
   useEffect(() => {
     fetchProducts();
-  }, []);
+  },[]);
 
   return (
     <>
@@ -114,6 +115,40 @@ export default function Products() {
                     <h2 className="card-title">₹{ele.price}/kg</h2>
                     <p>{ele.description}</p>
                     <div className="card-actions justify-end">
+
+
+               <select   name="size" className="select font-semibold" id="">
+                <option className="font-semibold p-4 h-3 " value="0.5">0.5Kg</option> <hr />
+                <option className="font-semibold p-4 h-3 "  value="1" selected>1Kg</option> <hr />
+                <option className="font-semibold p-4 h-3 " value="1.5">1.5Kg</option> <hr />
+                <option className="font-semibold p-4 h-3 " value="2">2Kg</option> <hr />
+               </select>
+
+                    {/* <div className="form-control ">
+                <label  className=" cursor-pointer m-2">
+                  <span  className="btn inl mx-1">Male</span>
+                  <input
+                    type="radio"
+                    name="gender" 
+                    className="radio checked:bg-neutral-content-400"
+                    defaultChecked
+                  />
+                </label>
+              </div>
+              <div className="form-control">
+                <label className=" cursor-pointer m-2">
+                  <span  className="btn mx-4">Female</span>
+                  <input
+                    type="radio"
+                    name="gender"
+                    className="radio checked:bg-neutral-content-400"
+                    
+                  />
+                </label>
+              </div> */}
+
+
+
                       <button
                         onClick={handleOrder} value={ele._id}
                         className="btn    bg-neutral-content btn-outline focus:bg-neutral focus:text-neutral-content"

@@ -3,7 +3,7 @@ import Navbar from '../components/Navbar/Navbar'
 import axios from 'axios';
 export default function Cart() {
 
-  let [gotData, setGotData] = useState(false);
+  let [gotData, setGotData] = useState([]);
 
   const fetchProducts = async () => {
     let result = await axios.get("https://cakeworld.onrender.com/api/products");

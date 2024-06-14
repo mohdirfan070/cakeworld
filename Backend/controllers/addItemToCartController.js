@@ -9,36 +9,20 @@ const checkProduct = (user, product) => {
 }
 
 const addToCart = async (req, res) => {
-    let { username, password, productId } = req.body;
-    let user = await Customer.findOne({ username, password });
-    // let product = await Product.findById(productId);
-    let arrCart = user.cart;
-    // console.log(arrCart.every((ele)=>ele._id!==productId));
-    if(arrCart.every((ele)=>ele._id!==productId)){
-        // console.log(true);
-        res.json({"msg":"Product ALready Exist!"});
-    }else{
-        console.log(false);
-        res.json({"msg":"Product Added to Cart!"});
-    }
-    // res.json({"msg":"Work in progress"});
-
-
+  
     //good Case
-    // let { username, password, productId } = req.body;
+    let { username, password, productId } = req.body;
+    let product = await Product.findById(productId);
+    try {
+        let result = await Customer.findOneAndUpdate({ username, password }, { $addToSet : { cart: product } }, { new: true });
+        res.json({ result });
+        // let cart = result.cart;
+        // res.json({ cart, productId });
+    } catch (error) {
+    }
 
-    // let product = await Product.findById(productId);
-    // try {
-
-    //     let result = await Customer.findOneAndUpdate({ username, password }, { $push: { cart: product } }, { new: true });
-    //     res.json({ result });
-    //     // let cart = result.cart;
-    //     // res.json({ cart, productId });
 
 
-    // } catch (error) {
-
-    // }
 
     //Worst Case
     //  let { username, password, productId } = req.body;
