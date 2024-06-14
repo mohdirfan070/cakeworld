@@ -30,7 +30,7 @@ export default function Products() {
       // console.log(userData);
       try {
           await axios.post("https://cakeworld.onrender.com/api/additemtocart", userData ).then((result)=>{
-              console.log(result.data);
+              // console.log(result.data);
       setToast(true);
       fetchProducts();
          // alert("Product Added to Cart Successfully!");
