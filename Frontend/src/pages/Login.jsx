@@ -165,7 +165,7 @@ export default function Login() {
 
 
             <select className="select w-full mb-2 select-bordered" name="gender" onChange={handleChange} id="">
-              <option value="male">Male</option>
+              <option  value="male">Male</option>
               <option value="female">Female</option>
             </select>
 

@@ -148,29 +148,29 @@ export default function Products() {
                       <select
                         onChange={hanldeChange}
                         name="quanity"
-                        className="select font-semibold"
+                        className="select font-semibold "
                         id=""
                       >
                         <option className="font-semibold p-4 h-3 " value={0.5}>
                           0.5Kg
                         </option>{" "}
-                        <hr />
+                      
                         <option
                           className="font-semibold p-4 h-3 "
                           value={1}
-                          selected
+                       defaultChecked
                         >
                           1Kg
                         </option>{" "}
-                        <hr />
+                      
                         <option className="font-semibold p-4 h-3 " value={1.5}>
                           1.5Kg
                         </option>{" "}
-                        <hr />
+                     
                         <option className="font-semibold p-4 h-3 " value={2}>
                           2Kg
                         </option>{" "}
-                        <hr />
+                     
                       </select>
 
                       <button

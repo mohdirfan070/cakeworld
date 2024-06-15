@@ -8,6 +8,7 @@ export default function Cart() {
   const fetchProducts = async () => {
     let result = await axios.get("https://cakeworld.onrender.com/api/products");
     let arr = result.data;
+    console.log(arr);
       setGotData([...arr]);
     // console.log(result.data);
   };
