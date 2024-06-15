@@ -23,7 +23,13 @@ export default function Login() {
 
   let handleChange = (e) => {
     setRes(false);
-
+    if (e.target.name == "gender") {
+      if(e.target.value=="female"){
+        setInputData({...inpData,profileImg:femaleProfileURL});
+        setInputData({ ...inpData, gender: e.target.value });
+      }
+      setInputData({ ...inpData, gender: e.target.value });
+    }
     if (e.target.name == "name") {
       setInputData({ ...inpData, name: e.target.value });
     }
@@ -155,7 +161,14 @@ export default function Login() {
                 placeholder="Mobile Number"
               />
         
-              <div className="form-control ">
+
+        <select name="gender" onChange={handleChange} className="select input-bordered mb-2 w-full" id="">
+            <option selected value="male">Male</option>
+            <option value="female">Female</option>
+          </select>
+          {/* onClick={()=>{setGender("female") ,   */}
+
+              {/* <div className="form-control ">
                 <label  className=" cursor-pointer m-2">
                   <span onClick={()=>{setGender("male") }} className="btn mx-4">Male</span>
                   <input
@@ -176,7 +189,7 @@ export default function Login() {
                     
                   />
                 </label>
-              </div>
+              </div> */}
 
               {/* <select className=" input  border-neutral-400 block mb-3 min-w-max" name="gender" id="">
               <option className="input" value="male">Male</option>
