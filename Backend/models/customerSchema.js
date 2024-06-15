@@ -15,7 +15,7 @@ const customerSchema = new mongoose.Schema({
         required: true
     },
     password: {
-        type: Number,
+        type: String,
         required: true
     },
     mobileNumber: {
