@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const Customer = require('../models/customerSchema.js');
 const Cart = require("../models/cartSchema.js");
 const Product = require("../models/productSchema.js");
-const cartSchema = require('../models');
+const cartSchema = require('../models/cartProductSchema.js');
 
 const checkProduct = (user, product) => {
     return user.cart.every((item) => (item._id === product.id))
