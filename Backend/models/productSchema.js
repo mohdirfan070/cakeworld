@@ -16,6 +16,14 @@ const productSchema = new mongoose.Schema({
         type: String,
 
     },
+    quantity:{
+        type:String,
+        default:"1kg"
+    },
+    msg:{
+        type: String,
+        default:"no messege form customer"
+    }
 }, { timestamps: true });
 
 module.exports = mongoose.model("Product", productSchema);

@@ -9,7 +9,7 @@ export default function Products() {
   let [model, setModel] = useState(false);
   let [toast, setToast] = useState(false);
   let [gotData, setGotData] = useState(false);
-  let [quantity, setQuantity] = useState("");
+  let [quantity, setQuantity] = useState("1kg");
   let [msg, setMsg] = useState("");
 
   const fetchProducts = async () => {
@@ -23,9 +23,10 @@ export default function Products() {
       setMsg(e.target.value);
     }
     if (e.target.name == "quantity") {
-      // console.log(e.target.value);
+      //  console.log(e.target.value);
       setQuantity(e.target.value);
     }
+    
   };
 
   const handleOrder = async (e) => {
@@ -34,16 +35,19 @@ export default function Products() {
         username: localStorage.getItem("username"),
         password: localStorage.getItem("password"),
         productId: e.target.value,
-        quantity: "",
-        msg: "",
+        quantity,
+        msg,
       };
       // console.log(userData);
       try {
+        
         await axios
           .post("https://cakeworld.onrender.com/api/additemtocart", userData)
           .then((result) => {
             // console.log(result.data);
             setToast(true);
+            setMsg("");
+            setQuantity("");
             fetchProducts();
             // alert("Product Added to Cart Successfully!");
             setTimeout(() => {
@@ -146,28 +150,32 @@ export default function Products() {
                    
                     <div className="card-actions justify-end">
                       <select
+                        name="quantity"
                         onChange={hanldeChange}
-                        name="quanity"
                         className="select font-semibold "
-                        id=""
+                        id="quantity"
                       >
-                        <option className="font-semibold p-4 h-3 " value={0.5}>
+                            <option className="font-semibold p-4 h-3 " value={"0.25kg"} >
+                          0.25Kg
+                        </option>{" "}
+
+                        <option className="font-semibold p-4 h-3 " value={"0.5kg"} >
                           0.5Kg
                         </option>{" "}
                       
                         <option
-                          className="font-semibold p-4 h-3 "
-                          value={1}
-                       defaultChecked
+                          className="font-semibold p-4 h-3  "
+                          value={"1kg"}
+                           selected
                         >
                           1Kg
                         </option>{" "}
                       
-                        <option className="font-semibold p-4 h-3 " value={1.5}>
+                        <option className="font-semibold p-4 h-3 " value={"1.5kg"}>
                           1.5Kg
                         </option>{" "}
                      
-                        <option className="font-semibold p-4 h-3 " value={2}>
+                        <option className="font-semibold p-4 h-3 " value={"2kg"}>
                           2Kg
                         </option>{" "}
                      
