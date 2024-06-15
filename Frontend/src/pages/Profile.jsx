@@ -20,7 +20,7 @@ export default function Profile() {
   let loadUser = async () => {
     let result = await axios.post(
       "https://cakeworld.onrender.com/api/getuserprofile",
-      username
+     { username}
     );
     // console.log(result.data);
     setUser({ ...result.data });
