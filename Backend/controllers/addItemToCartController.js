@@ -11,18 +11,16 @@ const checkProduct = (user, product) => {
 const addToCart = async (req, res) => {
   
     //good Case
-    let { username, password, productId } = req.body;
+    let { username, password, productId , quantity , msg } = req.body;
     let product = await Product.findById(productId);
     try {
-        let result = await Customer.findOneAndUpdate({ username, password }, { $addToSet : { cart: product } }, { new: true });
+        let result = await Customer.findOneAndUpdate({ username, password }, { $addToSet : { cart:{ product ,  quantity , msg }} }, { new: true });
         res.json({ result });
         // let cart = result.cart;
         // res.json({ cart, productId });
     } catch (error) {
+
     }
-
-
-
 
     //Worst Case
     //  let { username, password, productId } = req.body;
