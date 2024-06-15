@@ -169,48 +169,6 @@ export default function Login() {
               <option value="female">Female</option>
             </select>
 
-              {/* <div className="form-control ">
-                <label className=" cursor-pointer m-2">
-                  <span
-                    onClick={() => {
-                      setGender("male");
-                    }}
-                    className="btn mx-4"
-                  >
-                    Male
-                  </span>
-                  <input
-                    type="radio"
-                    name="gender"
-                    className="radio checked:bg-neutral-content-400"
-                    defaultChecked
-                  />
-                </label>
-              </div>
-              <div className="form-control">
-                <label className=" cursor-pointer m-2">
-                  <span
-                    onClick={() => {
-                      setGender("female"),
-                        setInputData({
-                          ...inpData,
-                          profileImg: femaleProfileURL,
-                        });
-                    }}
-                    className="btn mx-4"
-                  >
-                    Female
-                  </span>
-                  <input
-                    type="radio"
-                    name="gender"
-                    className="radio checked:bg-neutral-content-400"
-                  />
-                </label>
-              </div> */}
-
-
-
               <input
                 className="input  border-neutral-400 block mb-3 "
                 onChange={handleChange}
