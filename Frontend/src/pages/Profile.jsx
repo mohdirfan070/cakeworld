@@ -16,14 +16,19 @@ export default function Profile() {
     pincode: "",
   });
   let [edit, setEdit] = useState(false);
-  let { username } = localStorage.getItem("username");
+
+
   let loadUser = async () => {
-    let result = await axios.post(
-      "https://cakeworld.onrender.com/api/getuserprofile",
-     { username}
-    );
-    // console.log(result.data);
-    setUser({ ...result.data });
+    if(localStorage.getItem("username")){
+      let  username  = localStorage.getItem("username");
+      let result = await axios.post(
+        "http://localhost:8080/api/getuserprofile",
+       { username}
+      );
+      // console.log(result.data);
+      setUser({ ...result.data });
+    }
+ 
   };
 
   useEffect(() => {
