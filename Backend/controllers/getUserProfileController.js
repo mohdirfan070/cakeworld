@@ -3,10 +3,10 @@ const mongoose = require("mongoose");
 const Customer = require("../models/customerSchema.js");
 const getUserProfile = async (req,res)=>{
   
-    let {id} = req.body  ;
+    let {username} = req.body  ;
    
         try {
-            let result = await Customer.findOne({id} );
+            let result = await Customer.findOne({username} );
             console.log(result);
             res.status(200).json(result);
         } catch (error) {

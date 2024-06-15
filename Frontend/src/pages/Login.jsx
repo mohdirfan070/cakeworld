@@ -154,13 +154,44 @@ export default function Login() {
                 name="mobileNumber"
                 placeholder="Mobile Number"
               />
+        
+              <div className="form-control ">
+                <label  className=" cursor-pointer m-2">
+                  <span onClick={()=>{setGender("male") }} className="btn mx-4">Male</span>
+                  <input
+                    type="radio"
+                    name="gender"
+                    className="radio checked:bg-neutral-content-400"
+                    defaultChecked
+                  />
+                </label>
+              </div>
+              <div className="form-control">
+                <label className=" cursor-pointer m-2">
+                  <span onClick={()=>{setGender("female") , setInputData({...inpData,profileImg:femaleProfileURL}) }} className="btn mx-4">Female</span>
+                  <input
+                    type="radio"
+                    name="gender"
+                    className="radio checked:bg-neutral-content-400"
+                    
+                  />
+                </label>
+              </div>
 
+              {/* <select className=" input  border-neutral-400 block mb-3 min-w-max" name="gender" id="">
+              <option className="input" value="male">Male</option>
+              <option value="female">Female</option>
+            </select> */}
 
-          <select name="gender" className="select input-bordered mb-2 w-full" id="">
-            <option onClick={()=>{setGender("male") }} selected value="male">Male</option>
-            <option onClick={()=>{setGender("female") , setInputData({...inpData,profileImg:femaleProfileURL}) }} value="female">Female</option>
-          </select>
-           
+              {/* <input
+                className="input  border-neutral-400 block mb-3 "
+                onChange={handleChange}
+                value={inpData.gender}
+                
+                // type="text"
+                // name="gender"
+                // placeholder="Gender"
+              /> */}
 
               <input
                 className="input  border-neutral-400 block mb-3 "

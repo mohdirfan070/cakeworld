@@ -16,11 +16,11 @@ export default function Profile() {
     pincode: "",
   });
   let [edit, setEdit] = useState(false);
-  let { userId } = params.id;
+  let { username } = localStorage.getItem("username");
   let loadUser = async () => {
     let result = await axios.post(
       "https://cakeworld.onrender.com/api/getuserprofile",
-      userId
+      username
     );
     // console.log(result.data);
     setUser({ ...result.data });
