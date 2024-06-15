@@ -23,7 +23,7 @@ export default function Products() {
       setMsg(e.target.value);
     }
     if (e.target.name == "quantity") {
-      console.log(e.target.value);
+      // console.log(e.target.value);
       setQuantity(e.target.value);
     }
   };

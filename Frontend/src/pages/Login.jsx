@@ -5,9 +5,10 @@ import Footer from "../components/Footer/Footer";
 import { useNavigate } from "react-router-dom";
 
 export default function Login() {
-  const femaleProfileURL = "https://thumbs.dreamstime.com/b/female-avatar-profile-icon-round-woman-face-flat-vector-illustration-female-avatar-profile-icon-round-woman-face-102767911.jpg";
+  const femaleProfileURL =
+    "https://thumbs.dreamstime.com/b/female-avatar-profile-icon-round-woman-face-flat-vector-illustration-female-avatar-profile-icon-round-woman-face-102767911.jpg";
   let [loginStatus, setLoginStatus] = useState(false);
-  let [gender , setGender] = useState("male");
+  let [gender, setGender] = useState("male");
   let [inpData, setInputData] = useState({
     name: "",
     username: "",
@@ -16,14 +17,17 @@ export default function Login() {
     address: "",
     pincode: "",
     gender,
-    profileImg:"https://static.vecteezy.com/system/resources/previews/000/662/785/original/man-face-cartoon-vector.jpg",
+    profileImg:
+      "https://static.vecteezy.com/system/resources/previews/000/662/785/original/man-face-cartoon-vector.jpg",
   });
   let [response, setRes] = useState(false);
   let [login, setLogin] = useState(localStorage.getItem("login") || false);
 
   let handleChange = (e) => {
     setRes(false);
-    
+    if(e.target.name=="gender"){
+      (e.target.value=="male")?  setGender("male") : setGender("female") , setInputData({...inpData,profileImg:femaleProfileURL}) ;
+    }
     if (e.target.name == "name") {
       setInputData({ ...inpData, name: e.target.value });
     }
@@ -55,7 +59,8 @@ export default function Login() {
       address: "",
       pincode: "",
       gender,
-      profileImg:"https://static.vecteezy.com/system/resources/previews/000/662/785/original/man-face-cartoon-vector.jpg",
+      profileImg:
+        "https://static.vecteezy.com/system/resources/previews/000/662/785/original/man-face-cartoon-vector.jpg",
     });
   };
 
@@ -76,7 +81,10 @@ export default function Login() {
       setLoginStatus(true);
       //  console.log(inpData);
       // s://cakeworld.onrender.com
-      let result = await axios.post("https://cakeworld.onrender.com/api/login", inpData);
+      let result = await axios.post(
+        "https://cakeworld.onrender.com/api/login",
+        inpData
+      );
       setLogin(true);
       localStorage.setItem("login", "true");
       localStorage.setItem("username", result.data.username);
@@ -154,49 +162,54 @@ export default function Login() {
                 name="mobileNumber"
                 placeholder="Mobile Number"
               />
-        
 
 
-              <div className="form-control ">
-                
-                <label  className=" cursor-pointer m-2">
-                  <span onClick={()=>{setGender("male") }} className="btn mx-4">Male</span>
+            <select className="select w-full mb-2 select-bordered" name="gender" onChange={handleChange} id="">
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+            </select>
+
+              {/* <div className="form-control ">
+                <label className=" cursor-pointer m-2">
+                  <span
+                    onClick={() => {
+                      setGender("male");
+                    }}
+                    className="btn mx-4"
+                  >
+                    Male
+                  </span>
                   <input
                     type="radio"
                     name="gender"
                     className="radio checked:bg-neutral-content-400"
                     defaultChecked
                   />
-                </label> 
-               
+                </label>
               </div>
               <div className="form-control">
                 <label className=" cursor-pointer m-2">
-                  <span onClick={()=>{setGender("female") , setInputData({...inpData,profileImg:femaleProfileURL}) }} className="btn mx-4">Female</span>
+                  <span
+                    onClick={() => {
+                      setGender("female"),
+                        setInputData({
+                          ...inpData,
+                          profileImg: femaleProfileURL,
+                        });
+                    }}
+                    className="btn mx-4"
+                  >
+                    Female
+                  </span>
                   <input
                     type="radio"
                     name="gender"
                     className="radio checked:bg-neutral-content-400"
-                    
                   />
                 </label>
-               
-              </div>
+              </div> */}
 
-              {/* <select className=" input  border-neutral-400 block mb-3 min-w-max" name="gender" id="">
-              <option className="input" value="male">Male</option>
-              <option value="female">Female</option>
-            </select> */}
 
-              {/* <input
-                className="input  border-neutral-400 block mb-3 "
-                onChange={handleChange}
-                value={inpData.gender}
-                
-                // type="text"
-                // name="gender"
-                // placeholder="Gender"
-              /> */}
 
               <input
                 className="input  border-neutral-400 block mb-3 "
