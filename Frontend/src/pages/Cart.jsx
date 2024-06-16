@@ -12,9 +12,9 @@ export default function Cart() {
   let removeCartProduct = async (productId)=>{
     let givenData= { productId , username}
         
-        let result =await axios.post("http://localhost:8080/api/removecartproduct",givenData);
-        console.log(result.cart);
-        // console.log(result);
+        let result =await axios.post("https://cakeworld.onrender.com/api/removecartproduct",givenData);
+        
+        console.log(result);
      
     }
 
