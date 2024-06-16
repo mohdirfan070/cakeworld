@@ -63,7 +63,7 @@ export default function Cart() {
                           <h2 className="card-title text-base">Msg : {ele.msg}</h2>
                         </div>
                         <div className="card-actions justify-center mb-4">
-                        <button onClick={()=>{  setQuantity(ele.quantity) , removeCartProduct(ele._id)}}  className="btn    bg-neutral-content btn-outline focus:bg-neutral focus:text-neutral-content">Remove</button>
+                        <button onClick={()=>{ removeCartProduct(ele._id)}}  className="btn    bg-neutral-content btn-outline focus:bg-neutral focus:text-neutral-content">Remove</button>
                       </div>
                       </div>
                     </React.Fragment>
