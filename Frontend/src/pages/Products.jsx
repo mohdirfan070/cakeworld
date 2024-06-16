@@ -9,7 +9,7 @@ export default function Products() {
   let [model, setModel] = useState(false);
   let [toast, setToast] = useState(false);
   let [gotData, setGotData] = useState(false);
-  let [quantity, setQuantity] = useState("1kg");
+  let [quantity, setQuantity] = useState("1");
   let [msg, setMsg] = useState("");
 
   const fetchProducts = async () => {
@@ -42,7 +42,7 @@ export default function Products() {
       try {
         
         await axios
-          .post("http://localhost:8080/api/additemtocart", userData)
+          .post("https://cakeworld.onrender.com/api/additemtocart", userData)
           .then((result) => {
             // console.log(result.data);
             setToast(true);
@@ -111,7 +111,7 @@ export default function Products() {
           {gotData ? (
             gotData.map((ele, i) => (
               <React.Fragment key={i}>
-                <div className="card card-compact overflow-hidden w-80 min-w-64 bg-base-100   m-2    bg-neutral-content btn-ghost transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-xl ">
+                <div className="card card-compact overflow-hidden w-80 min-w-64  m-2    bg-neutral-content btn-ghost transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-xl ">
                   {/* <img src="ele.Image" alt="" /> */}
                   <img
                     className="rounded-lg  h-44 "
@@ -154,29 +154,29 @@ export default function Products() {
                         onChange={hanldeChange}
                         className="select font-semibold "
                         id="quantity"
-                        defaultValue={"1kg"}
+                        defaultValue={"1"}
                       >
-                            <option className="font-semibold p-4 h-3 " value={"0.25kg"} >
+                            <option className="font-semibold p-4 h-3 " value={0.25} >
                           0.25Kg
                         </option>{" "}
 
-                        <option className="font-semibold p-4 h-3 " value={"0.5kg"} >
+                        <option className="font-semibold p-4 h-3 " value={0.5} >
                           0.5Kg
                         </option>{" "}
                       
                         <option
                           className="font-semibold p-4 h-3  "
-                          value={"1kg"}
+                          value={"1"}
                           
                         >
                           1Kg
                         </option>{" "}
                       
-                        <option className="font-semibold p-4 h-3 " value={"1.5kg"}>
+                        <option className="font-semibold p-4 h-3 " value={1.5}>
                           1.5Kg
                         </option>{" "}
                      
-                        <option className="font-semibold p-4 h-3 " value={"2kg"}>
+                        <option className="font-semibold p-4 h-3 " value={2}>
                           2Kg
                         </option>{" "}
                      

@@ -24,7 +24,7 @@ const getUserProfileRoute = require('./routes/getUserProfileRoute.js');
 const updateUserRoute = require('./routes/updateUserRoute.js');
 const addItemToCartRoute = require('./routes/addItemToCartRoute.js');
 const getCartProduct = require('./routes/getCartProductRoute.js');
-
+const removeCartProductRoute = require('./routes/removeCartProductRoute.js');
 
 //All Middlewears
 app.use("/", homeRoute);
@@ -38,7 +38,7 @@ app.use("/api/getuserprofile",getUserProfileRoute);
 app.use("/api/updateuser",updateUserRoute);
 app.use("/api/additemtocart",addItemToCartRoute);
 app.use("/api/getcartproducts",getCartProduct);
-
+app.use("/api/removecartproduct",removeCartProductRoute);
 
 
 
