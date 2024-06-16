@@ -9,15 +9,16 @@ const cartProduct = require("../models/cartProductSchema.js");
 // }
 
 const addToCart = async (req, res) => {
-  
+
     //good Case
-    let { username, password, productId , quantity , msg } = req.body;
+    let { username, password, productId, quantity, msg } = req.body;
     let product = await Product.findById(productId);
-   product.msg=msg;
-   product.quantity=quantity;
+    product.msg = msg;
+    product.quantity = quantity;
+
     try {
-        let result = await Customer.findOneAndUpdate({ username, password },{$push:{cart:product}}, { new: true });
-            console.log(result);
+           let result = await Customer.findOneAndUpdate({ username, password }, { $push: { cart: product } }, { new: true });
+        // console.log(result);
         res.json({ result });
         // let cart = result.cart;`
         // res.json({ cart, productId });

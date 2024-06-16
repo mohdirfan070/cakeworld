@@ -42,7 +42,7 @@ export default function Products() {
       try {
         
         await axios
-          .post("https://cakeworld.onrender.com/api/additemtocart", userData)
+          .post("http://localhost:8080/api/additemtocart", userData)
           .then((result) => {
             // console.log(result.data);
             setToast(true);
@@ -154,6 +154,7 @@ export default function Products() {
                         onChange={hanldeChange}
                         className="select font-semibold "
                         id="quantity"
+                        defaultValue={"1kg"}
                       >
                             <option className="font-semibold p-4 h-3 " value={"0.25kg"} >
                           0.25Kg
@@ -166,7 +167,7 @@ export default function Products() {
                         <option
                           className="font-semibold p-4 h-3  "
                           value={"1kg"}
-                           selected
+                          
                         >
                           1Kg
                         </option>{" "}
