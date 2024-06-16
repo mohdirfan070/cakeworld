@@ -5,13 +5,17 @@ export default function Cart() {
 
   let [gotData, setGotData] = useState([]);
 
-  const fetchProducts = async () => {
-    let result = await axios.get("https://cakeworld.onrender.com/api/products");
+
+  const fetchCartProducts = async () => {
+    let result = await axios.get(`http://localhost:8080/api/getcart/:${username}`);
     let arr = result.data;
     console.log(arr);
-      setGotData([...arr]);
+    setGotData([...arr]);
     // console.log(result.data);
   };
+  const username = localStorage.getItem("username")|| false;
+  (username)?fetchCartProducts():"";
+
   return (
     <>
     <Navbar/>

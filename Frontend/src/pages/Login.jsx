@@ -25,8 +25,9 @@ export default function Login() {
 
   let handleChange = (e) => {
     setRes(false);
-    if(e.target.name=="gender"){
-      (e.target.value=="male")?  setGender("male") : setGender("female") , setInputData({...inpData,profileImg:femaleProfileURL}) ;
+    if (e.target.name == "gender") {
+      e.target.value == "male" ? setGender("male") : setGender("female"),
+        setInputData({ ...inpData, profileImg: femaleProfileURL });
     }
     if (e.target.name == "name") {
       setInputData({ ...inpData, name: e.target.value });
@@ -154,20 +155,25 @@ export default function Login() {
                 name="password"
                 placeholder="Password"
               />
-              <input
-                className="input  border-neutral-400 block mb-3 "
+              <p className="tooltip block"  data-tip="ex: 123456789 , 987645312 ">
+                 <input
+                  className="input  border-neutral-400 block mb-3 "
+                  onChange={handleChange}
+                  value={inpData.mobileNumber}
+                  type="text"
+                  name="mobileNumber"
+                  placeholder="Mobile Number"
+                />
+             </p>
+              <select
+                className="select w-[217px] mb-2 select-bordered"
+                name="gender"
                 onChange={handleChange}
-                value={inpData.mobileNumber}
-                type="text"
-                name="mobileNumber"
-                placeholder="Mobile Number"
-              />
-
-
-            <select className="select w-full mb-2 select-bordered" name="gender" onChange={handleChange} id="">
-              <option  value="male">Male</option>
-              <option value="female">Female</option>
-            </select>
+                id=""
+              >
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+              </select>
 
               <input
                 className="input  border-neutral-400 block mb-3 "
