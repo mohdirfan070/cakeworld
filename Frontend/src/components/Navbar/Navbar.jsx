@@ -103,13 +103,15 @@ function Navbar() {
               </li> : " "
               }
              
-              <li>
+             
+              {isAdmin ? ( <>
+                <li>
                 <Link to={"/about"}>About</Link>
               </li>
-              {isAdmin ? (
                 <li>
                   <Link to={"/addproducts"}>Add Products</Link>
                 </li>
+                </>
               ) : (
                 ""
               )}
@@ -208,9 +210,13 @@ function Navbar() {
                     {/* <span className="badge">New</span> */}
                   </Link>
                 </li>
-                <li>
+                {
+                  (isAdmin)? <li>
                   <a>Settings</a>
-                </li>
+                </li> : ""
+
+                }
+               
                 <li onClick={handleLogout}>
                   {" "}
                   <a> Logout</a>
