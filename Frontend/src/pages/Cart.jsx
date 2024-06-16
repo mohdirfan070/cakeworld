@@ -38,7 +38,7 @@ export default function Cart() {
     <>
       <Navbar />
 
-      <section className="mt-20 w-full ">
+      <section className="mt-20 w-full min-h-screen ">
         <div className="main m-auto   w-full ">
           {(products.length!=0) ? (
             <React.Fragment>
