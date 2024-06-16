@@ -11,9 +11,10 @@ export default function Cart() {
 
   let removeCartProduct = async (productId)=>{
     let givenData= { productId , username}
-     
+        
         let result =await axios.post("http://localhost:8080/api/removecartproduct",givenData);
-        console.log(result);
+        console.log(result.cart);
+        // console.log(result);
      
     }
 

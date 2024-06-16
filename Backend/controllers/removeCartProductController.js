@@ -5,7 +5,7 @@ const mongoose  = require('mongoose');
 const removeProduct = async(req, res )=>{
     let { username , productId } = req.body;
     console.log({username , productId });
-    let result = await Customer.findOneAndUpdate({username}, {} ,{new:true});
+    let result = await Customer.findOne({username});
     console.log(result);
     res.json({"msg":"Product is removed"});
 
