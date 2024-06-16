@@ -6,8 +6,8 @@ const mongoose  = require('mongoose');
 
 
 const removeProduct = async(req, res )=>{
-    let { username , productId } = req.body;
-    //  console.log({username , productId });
+    let { username , productId   } = req.body;
+    //  console.log({username , productId  });
 
    await Customer.findOne({username}).then(async(result)=>{
         let newArr = [];
@@ -18,7 +18,7 @@ const removeProduct = async(req, res )=>{
               }
             }
 
-            console.log(newArr);
+            // console.log(newArr);
             await Customer.findOneAndUpdate({username},{cart:newArr});
             newArr=[];
 

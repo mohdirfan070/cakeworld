@@ -7,10 +7,12 @@ import { Link } from "react-router-dom";
 export default function Cart() {
   // let [gotData, setGotData] = useState([]);
   let [products, setProducts] = useState([]);
+  let[quantity,setQuantity]=useState("1");
   const username = localStorage.getItem("username") || false;
 
   let removeCartProduct = async (productId)=>{
-    let givenData= { productId , username}
+
+    let givenData= { productId , username }
         
         let result =await axios.post("https://cakeworld.onrender.com/api/removecartproduct",givenData);
         
@@ -61,7 +63,7 @@ export default function Cart() {
                           <h2 className="card-title text-base">Msg : {ele.msg}</h2>
                         </div>
                         <div className="card-actions justify-center mb-4">
-                        <button onClick={()=>removeCartProduct(ele._id)}  className="btn    bg-neutral-content btn-outline focus:bg-neutral focus:text-neutral-content">Remove</button>
+                        <button onClick={()=>{  setQuantity(ele.quantity) , removeCartProduct(ele._id)}}  className="btn    bg-neutral-content btn-outline focus:bg-neutral focus:text-neutral-content">Remove</button>
                       </div>
                       </div>
                     </React.Fragment>
