@@ -39,7 +39,7 @@ export default function Cart() {
       <Navbar />
 
       <section className="mt-20 w-full h-screen ">
-        <div className="main m-auto h-screen w-full ">
+        <div className="main m-auto min-h-screen max-h-max w-full ">
           {(products.length!=0) ? (
             <React.Fragment>
               <div className="cards flex justify-center flex-wrap gap-2">
