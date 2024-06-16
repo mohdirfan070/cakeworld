@@ -70,7 +70,7 @@ export default function Cart() {
             </React.Fragment>
           ) : (
             <>
-             <Link to={"/products"}> <h2 className="text-center mt-44"> <button className="btn bg-neutral-content btn-outline focus:bg-neutral focus:text-neutral-content text-sm w-56 rounded-md hover:rounded-full transition-colors duration-300 ease-in ">  Cart is Empty! <br />Click to add Items </button></h2></Link>
+             <Link to={"/products"}> <h2 className="text-center m-44"> <button className="btn bg-neutral-content btn-outline focus:bg-neutral focus:text-neutral-content text-sm w-56 rounded-md hover:rounded-full transition-colors duration-300 ease-in ">  Cart is Empty! <br />Click to add Items </button></h2></Link>
               
               </>
           )}
