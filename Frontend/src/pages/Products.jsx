@@ -47,7 +47,7 @@ export default function Products() {
             // console.log(result.data);
             setToast(true);
             setMsg("");
-            setQuantity("");
+            setQuantity("1");
             fetchProducts();
             // alert("Product Added to Cart Successfully!");
             setTimeout(() => {
