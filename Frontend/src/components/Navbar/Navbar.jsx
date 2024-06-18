@@ -104,7 +104,8 @@ function Navbar() {
               }
              
              
-              {isAdmin ? ( <>
+              {isAdmin ? ( 
+                <>
                 <li>
                 <Link to={"/about"}>About</Link>
               </li>

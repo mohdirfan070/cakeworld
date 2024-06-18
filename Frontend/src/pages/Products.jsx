@@ -4,18 +4,20 @@ import axios from "axios";
 import "./Products.css";
 import Footer from "../components/Footer/Footer.jsx";
 import { Link } from "react-router-dom";
-
+import Sound from "../assets/successSound.mp3";
 export default function Products() {
   let [model, setModel] = useState(false);
   let [toast, setToast] = useState(false);
   let [gotData, setGotData] = useState(false);
   let [quantity, setQuantity] = useState("1");
   let [msg, setMsg] = useState("");
+  // const audio = new Audio(Sound);
 
   const fetchProducts = async () => {
     let result = await axios.get("https://cakeworld.onrender.com/api/products");
     let arr = result.data;
-     setGotData([...arr]);
+    setGotData([...arr]);
+    // audio.play();
     // console.log(result.data);
   };
   const hanldeChange = (e) => {
@@ -26,8 +28,12 @@ export default function Products() {
       //  console.log(e.target.value);
       setQuantity(e.target.value);
     }
-    
   };
+
+  function play() {
+    let audio = new Audio(Sound);
+    audio.play();
+  }
 
   const handleOrder = async (e) => {
     if (localStorage.getItem("login")) {
@@ -40,12 +46,13 @@ export default function Products() {
       };
       // console.log(userData);
       try {
-        
         await axios
           .post("https://cakeworld.onrender.com/api/additemtocart", userData)
           .then((result) => {
             // console.log(result.data);
+            play();
             setToast(true);
+          
             setMsg("");
             setQuantity("");
             fetchProducts();
@@ -134,20 +141,18 @@ export default function Products() {
                         className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
                       >
                         <li>
-                        <textarea
-                      value={msg}
-                      name={"msg"}
-                      onChange={hanldeChange}
-                      className="textarea z-10"
-                      placeholder="Have a messege?"
-                      id=""
-                    ></textarea>
+                          <textarea
+                            value={msg}
+                            name={"msg"}
+                            onChange={hanldeChange}
+                            className="textarea z-10"
+                            placeholder="Have a messege?"
+                            id=""
+                          ></textarea>
                         </li>
-                       
                       </ul>
                     </div>
 
-                   
                     <div className="card-actions justify-end">
                       <select
                         name="quantity"
@@ -156,30 +161,21 @@ export default function Products() {
                         id="quantity"
                         defaultValue={"1"}
                       >
-                            <option className="font-semibold p-4 h-3 " value={0.25} >
+                        <option className="font-semibold p-4 h-3 " value={0.25}>
                           0.25Kg
                         </option>{" "}
-
-                        <option className="font-semibold p-4 h-3 " value={0.5} >
+                        <option className="font-semibold p-4 h-3 " value={0.5}>
                           0.5Kg
                         </option>{" "}
-                      
-                        <option
-                          className="font-semibold p-4 h-3  "
-                          value={"1"}
-                          
-                        >
+                        <option className="font-semibold p-4 h-3  " value={"1"}>
                           1Kg
                         </option>{" "}
-                      
                         <option className="font-semibold p-4 h-3 " value={1.5}>
                           1.5Kg
                         </option>{" "}
-                     
                         <option className="font-semibold p-4 h-3 " value={2}>
                           2Kg
                         </option>{" "}
-                     
                       </select>
 
                       <button
@@ -196,11 +192,12 @@ export default function Products() {
             ))
           ) : (
             <>
-            <div className="m-auto flex  h-screen">
-
-            <p className="my-auto block">Please wait while we get the data...</p>
-            <span className="loading loading-bars  loading-lg   my-auto blcok"></span>
-            </div>
+              <div className="m-auto flex  h-screen">
+                <p className="my-auto block">
+                  Please wait while we get the data...
+                </p>
+                <span className="loading loading-bars  loading-lg   my-auto blcok"></span>
+              </div>
             </>
           )}
         </div>
