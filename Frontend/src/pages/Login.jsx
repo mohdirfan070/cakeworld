@@ -166,7 +166,7 @@ export default function Login() {
                 />
              </p>
               <select
-                className="select w-[217px] mb-2 select-bordered"
+                className="select w-[inherit] mb-2 select-bordered"
                 name="gender"
                 onChange={handleChange}
                 id=""
