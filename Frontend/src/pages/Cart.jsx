@@ -1,15 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Navbar from "../components/Navbar/Navbar";
 import axios from "axios";
 import Footer from "../components/Footer/Footer.jsx";
 import { Link } from "react-router-dom";
 
 export default function Cart() {
-  // let [gotData, setGotData] = useState([]);
+   let [gotData, setGotData] = useState([]);
   let [products, setProducts] = useState([]);
   let[quantity,setQuantity]=useState("1");
   const username = localStorage.getItem("username") || false;
-
+  
   let removeCartProduct = async (productId)=>{
 
     let givenData= { productId , username }
@@ -26,10 +26,14 @@ export default function Cart() {
       { username }
     );
     let arr = result.data;
-    // console.log(arr.result);
-    // setGotData(arr.result);
+  //  console.log(arr.result);
+  //    setGotData(arr.result);
     setProducts([...arr.result.cart]);
+   
   };
+
+ 
+
 
   if (username) {
     setTimeout(() => {
@@ -37,15 +41,20 @@ export default function Cart() {
     },1000);
     // fetchCartProducts();
   }
+  let getTotal =(val)=>{
+
+  };
   return (
     <>
       <Navbar />
+    <div className="parent-div pt-20 flex flex-wrap p-3 justify-center">
+      <section className=" w-full min-h-screen min-w-80 ">
 
-      <section className="mt-20 w-full min-h-screen ">
         <div className="main m-auto   w-full ">
           {(products.length!=0) ? (
             <React.Fragment>
               <div className="cards flex justify-center flex-wrap gap-2">
+              
                 {products.map((ele, i) => {
                   return (
                     <React.Fragment key={i}>
@@ -64,21 +73,30 @@ export default function Cart() {
                         </div>
                         <div className="card-actions justify-center mb-4">
                         <button onClick={()=>{ removeCartProduct(ele._id)}}  className="btn    bg-neutral-content btn-outline focus:bg-neutral focus:text-neutral-content">Remove</button>
+                     
                       </div>
                       </div>
+                    
                     </React.Fragment>
+                    
                   );
                 })}
+                
               </div>
+              
             </React.Fragment>
           ) : (
             <>
              <Link to={"/products"}> <h2 className="text-center my-80"> <button className="btn bg-neutral-content btn-outline focus:bg-neutral focus:text-neutral-content text-sm w-56 rounded-md hover:rounded-full transition-colors duration-300 ease-in ">  Cart is Empty! <br />Click to add Items </button></h2></Link>
-              
+          
               </>
           )}
+         
         </div>
+        
       </section>
+     
+      </div>
       <Footer />
 
     </>

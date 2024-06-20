@@ -34,7 +34,8 @@ const customerSchema = new mongoose.Schema({
         type: Number,
     },
     cart:{
-      type:Array
+      type:mongoose.Schema.Types.ObjectId,
+      ref:"Cart",
     } 
 }, { timestamps: { required: true } });
 module.exports = mongoose.model("Customer", customerSchema);
