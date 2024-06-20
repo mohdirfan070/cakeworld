@@ -38,7 +38,7 @@ export default function Cart() {
   if (username) {
     setTimeout(() => {
       fetchCartProducts();
-    },1000);
+    },700);
     // fetchCartProducts();
   }
   let getTotal =(val)=>{
