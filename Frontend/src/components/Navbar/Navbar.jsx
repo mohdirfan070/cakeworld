@@ -35,29 +35,47 @@ function Navbar() {
     localStorage.setItem("username", "");
     localStorage.setItem("password", "");
     localStorage.setItem("isAdmin", "");
+    localStorage.setItem("cartId", "");
     setLogin(false);
     navigate("/home");
   };
 
   const [user, setUser] = useState({});
+  const [cart,setCart]=useState({});
   const getUser = async () => {
     let username = localStorage.getItem("username");
     let password = localStorage.getItem("password");
+   
     let sendData = { username, password };
     await axios
       .post("https://cakeworld.onrender.com/api/getuserdata", sendData)
       .then((result) => {
-        //  console.log(result.data);
+        // console.log("This is from Navbar");
+          // console.log(result.data);
         setUser({ ...result.data });
       })
       .catch((err) => {
         console.log(err);
       });
+
+       
   };
+
+    const getCart = async()=>{
+      let cartId = localStorage.getItem("cartId") || false;
+      await axios.post(`https://cakeworld.onrender.com/api/getcartproducts`, { cartId } ).then((result)=>{
+       
+        // console.log(result.data.result);
+        setCart({...result.data.result});
+       });
+    }
+
 
   useEffect(() => {
     if (localStorage.getItem("username")) {
-      setInterval(()=>{getUser()},2000)
+       getUser();
+    //getCart();
+       setInterval(()=>{getCart()},2000)
     }
   },[]);
 
@@ -152,9 +170,9 @@ function Navbar() {
                       d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
                     />
                   </svg>
-                  {user.cart ? (
+                  {cart.prodList ? (
                     <span className="badge badge-sm indicator-item">
-                      {user.cart.length}
+                      {cart.quantity} 
                     </span>
                   ) : (
                     <span className="badge badge-sm indicator-item"> 0 </span>
@@ -167,10 +185,12 @@ function Navbar() {
                 className="mt-3 z-[1] card card-compact dropdown-content w-52 bg-base-100 shadow"
               >
                 <div className="card-body">
-                  {user.cart ? (
-                      <span className="font-bold text-lg"> {user.cart.length} Items</span>
-                  ) : ( " "
-                    // <span className="font-bold text-lg">0 Items</span>
+                  {cart.prodList ? (
+                      // <span className="font-bold text-lg"> {user.cart.length} Items</span>
+                      <span className="font-bold text-lg">  {cart.quantity}  Items</span>
+
+                  ) : ( 
+                     <span className="font-bold text-lg">0 Items</span>
                   )}
 
                   {/* <span className="font-bold text-lg">3 Items</span> */}

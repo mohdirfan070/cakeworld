@@ -1,31 +1,27 @@
 const express  = require('express');
 const Customer = require("../models/customerSchema.js");
 const mongoose  = require('mongoose');
+const Cart = require('../models/cartSchema.js');
 
 
 
 
 const removeProduct = async(req, res )=>{
-    let { username , productId   } = req.body;
-    //  console.log({username , productId  });
 
-   await Customer.findOne({username}).then(async(result)=>{
-        let newArr = [];
-                let arr = result.cart;
-            for(i=0;i<arr.length;i++){
-              if(arr[i]._id!=productId){
-                newArr.push(arr[i]);
-              }
-            }
+  let { cartId , productId, productQuantity,productMsg , newproductPrice  } = req.body;
+  // console.log({ cartId , productId, productQuantity,productMsg , newproductPrice    });
+  let result  = await Cart.findById(cartId);
+  
+  let newArr  = result.prodList.filter((ele)=>ele._id!=productId && ele.msg!=productMsg || ele.quantity!=productQuantity);
 
-            // console.log(newArr);
-            await Customer.findOneAndUpdate({username},{cart:newArr});
-            newArr=[];
+   if(result.totalPrice>0 &&  result.quantity>0){
+    result.totalPrice-=newproductPrice;
+    result.quantity-=1;
+  result  = await Cart.findByIdAndUpdate(cartId,{prodList:newArr,quantity:result.quantity,totalPrice:result.totalPrice},{new:true});
+   }
 
-   });
-   
-  //  res.json({"msg":"Product is removed"});
-
+  
+  // console.log(result);
 }
 
 module.exports = {removeProduct};

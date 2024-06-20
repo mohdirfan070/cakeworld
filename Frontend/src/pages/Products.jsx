@@ -40,6 +40,7 @@ export default function Products() {
       const userData = {
         username: localStorage.getItem("username"),
         password: localStorage.getItem("password"),
+        cartId:localStorage.getItem("cartId"),
         productId: e.target.value,
         quantity,
         msg,
@@ -49,10 +50,9 @@ export default function Products() {
         await axios
           .post("https://cakeworld.onrender.com/api/additemtocart", userData)
           .then((result) => {
-            // console.log(result.data);
+             console.log(result.data);
             play();
             setToast(true);
-          
             setMsg("");
             setQuantity("1");
             fetchProducts();

@@ -7,7 +7,7 @@ const getUserProfile = async (req,res)=>{
    
         try {
             let result = await Customer.findOne({username} );
-            console.log(result);
+            // console.log(result);
             res.status(200).json(result);
         } catch (error) {
             res.status(204).json({"msg":"No users Found"});
