@@ -1,4 +1,4 @@
-import React , { useEffect,  useState } from "react";
+import React , { useEffect,  useRef,  useState } from "react";
 import Navbar from "../components/Navbar/Navbar";
 import axios from "axios";
 import Footer from "../components/Footer/Footer.jsx";
@@ -6,10 +6,33 @@ import { Link } from "react-router-dom";
 import DelIcon from '../assets/deleteIcon.png'
 export default function Cart() {
   let [cart, setCart] = useState([]);
+  // let[user,setUser]=useState({
+  //   mobileNumber:"",
+  // });
+  let userMobileNumber = useRef(0);
   let [products,setProducts]=useState([]);
   let [quantity, setQuantity] = useState("1");
   const username = localStorage.getItem("username") || false;
+  const password = localStorage.getItem("password") || false;
   const cartId = localStorage.getItem("cartId") || false;
+
+
+ 
+  const getUser=async()=>{
+   
+    await axios.post('https://cakeworld.onrender.com/api/getuserdata',{username,password}).then((result)=>{
+        //  console.log(result.data);
+         userMobileNumber.current=result.data.mobileNumber;
+        //  setUser({mobileNumber:result.data.mobileNumber});
+        //  console.log(userMobileNumber);
+    });
+  }
+
+
+ 
+    getUser();
+
+
   let removeCartProduct = async (productId,productQuantity,productuuId,productPrice )=> {
     let newproductPrice = eval(productQuantity * productPrice);
     // console.log(newproductPrice);
@@ -56,26 +79,35 @@ export default function Cart() {
         }
       
         </section>
-        <section onClick={()=>document.getElementById('my_modal_1').showModal()} className="border-2 p-3 m-3 rounded-md border-neutral bg-primary my-4">
+        {
+          (cart.quantity>0)? <>
+             <section onClick={()=>document.getElementById('my_modal_1').showModal()} className="border-2 p-3 m-3 rounded-md border-neutral bg-primary my-4">
         <h2  className="btn  rounded-md text-lg font-semibold">Place Order!</h2> 
-
-{/* Open the modal using document.getElementById('ID').showModal() method */}
+           </section>
+          </>:
+        " "          
+        }
+       
 
 <dialog id="my_modal_1" className="modal">
   <div className="modal-box">
-    <h3 className="font-bold text-lg">Place Order</h3>
-    <p className="py-4">place order for ₹{(cart.totalPrice)?cart.totalPrice:0}</p>
-    <p className="py-4">+₹40 Delievery Charges</p>
+    <h3 className="font-bold text-lg border-b-4 border-neutral">Place Order</h3> 
+    <p className="pt-4">Place order for  <span className="font-semibold"> ₹{(cart.totalPrice)?cart.totalPrice:0}</span> </p>
+    <p className="pt-2">Delievery Charges <span className="font-semibold"> +₹40 </span></p>
+    <p className="pt-2">Total Charges : <span className="font-semibold">₹{ eval(`${cart.totalPrice}+40`) } </span></p>
+    <p className="pt-2 "><span className="text-error font-medium">Note </span> : Order will arrive within <b> 4hours</b> of order confirmed with payment</p>
+
     <div className="modal-action">
       <form method="dialog">
         {/* if there is a button in form, it will close the modal */}
-        <button className="btn">Close</button>
+        <button className="btn w-20">Close</button>
       </form>
+   <a href={`upi://pay?pa=irfan853pvt-1@oksbi&pn=${userMobileNumber.current}&cu=INR&am=${eval(`${cart.totalPrice}+40`)}`} > <button className="btn font-semibold w-20">Pay</button> </a>
     </div>
   </div>
 </dialog>
    
-        </section>
+       
         <section className=" w-full min-h-content min-w-80 ">
           <div className="main m-auto   w-full ">
             {products.length != 0 ? (
