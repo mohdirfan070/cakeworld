@@ -102,7 +102,7 @@ export default function Cart() {
         {/* if there is a button in form, it will close the modal */}
         <button className="btn w-20">Close</button>
       </form>
-   <a href={`upi://pay?pa=irfan853pvt-1@oksbi&pn=${userMobileNumber.current}&cu=INR&am=${eval(`${cart.totalPrice}+40`)}`} > <button className="btn font-semibold w-20">Pay</button> </a>
+   <a href={`upi://pay?pa=9538321498@ibl&pn=${userMobileNumber.current}&cu=INR&am=${eval(`${cart.totalPrice}+40`)}`} > <button className="btn font-semibold w-20">Pay</button> </a>
     </div>
   </div>
 </dialog>
