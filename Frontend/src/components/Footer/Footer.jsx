@@ -5,10 +5,9 @@ function Footer() {
     <>
     <footer className="footer footer-center p-10  bg-neutral text-neutral-content rounded ">
   <nav className="grid grid-flow-col gap-4">
-    <a className="link link-hover">About us</a>
-    <a className="link link-hover">Contact</a>
-    <a className="link link-hover">Jobs</a>
-    <a className="link link-hover">Press kit</a>
+    <a href='https://www.instagram.com/mohd_irfan070/' className="link link-hover">About us</a>
+    <a href='https://api.whatsapp.com/send?phone=919538321498&text=Hello%20Developer%20' className="link link-hover">Contact</a>
+    
   </nav> 
   <nav>
     <div className="grid grid-flow-col gap-4">
