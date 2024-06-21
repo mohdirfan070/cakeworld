@@ -46,6 +46,8 @@ export default function Cart() {
   return (
     <>
       <Navbar />
+      {/* The button to open modal */}
+
       <div className="parent-div pt-20 flex flex-wrap p-3 justify-center">
       <section className="border-2 p-3  rounded-md border-neutral bg-primary my-4">
         {
@@ -54,8 +56,23 @@ export default function Cart() {
         }
       
         </section>
-        <section className="border-2 p-3 m-3 rounded-md border-neutral bg-primary my-4">
-        <h2 className="btn  rounded-md text-lg font-semibold">Place Order!</h2> 
+        <section onClick={()=>document.getElementById('my_modal_1').showModal()} className="border-2 p-3 m-3 rounded-md border-neutral bg-primary my-4">
+        <h2  className="btn  rounded-md text-lg font-semibold">Place Order!</h2> 
+
+{/* Open the modal using document.getElementById('ID').showModal() method */}
+
+<dialog id="my_modal_1" className="modal">
+  <div className="modal-box">
+    <h3 className="font-bold text-lg">Place Order</h3>
+    <p className="py-4">place order for ₹{cart.totalPrice}</p>
+    <div className="modal-action">
+      <form method="dialog">
+        {/* if there is a button in form, it will close the modal */}
+        <button className="btn">Close</button>
+      </form>
+    </div>
+  </div>
+</dialog>
    
         </section>
         <section className=" w-full min-h-content min-w-80 ">
