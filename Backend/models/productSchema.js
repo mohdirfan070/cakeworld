@@ -23,6 +23,9 @@ const productSchema = new mongoose.Schema({
     msg:{
         type: String,
         default:"no messege form customer"
+    },
+    uuId:{
+        type:String,
     }
 }, { timestamps: true });
 

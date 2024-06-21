@@ -1,5 +1,6 @@
 const express = require("express");
 const mongoose = require('mongoose');
+const { v4: uuidv4 } = require('uuid');
 const Customer = require('../models/customerSchema.js');
 const Product = require("../models/productSchema.js");
 const cartProduct = require("../models/cartProductSchema.js");
@@ -17,6 +18,7 @@ const addToCart = async (req, res) => {
     let product = await Product.findById(productId);
     product.msg = msg;
     product.quantity = quantity;
+    product.uuId = uuidv4();
     //  console.log(product);
 
     try {
@@ -34,7 +36,7 @@ const addToCart = async (req, res) => {
         // let cart = result.cart;`
         // res.json({ cart, productId });
     } catch (error) {
-
+        console.log(error);
     }
 }
 
