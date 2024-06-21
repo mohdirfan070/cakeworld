@@ -37,9 +37,9 @@ export default function Products() {
 
   const handleOrder = async (e) => {
     if (localStorage.getItem("login")) {
-      if(msg==""){
+      if(msg==="")
         setMsg("No messege");
-      }
+      
       const userData = {
         username: localStorage.getItem("username"),
         password: localStorage.getItem("password"),
