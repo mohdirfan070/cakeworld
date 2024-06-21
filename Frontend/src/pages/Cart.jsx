@@ -42,17 +42,21 @@ export default function Cart() {
     }, 1000);
     // fetchCartProducts();
   }
-  let getTotal = (val) => {};
+ 
   return (
     <>
       <Navbar />
       <div className="parent-div pt-20 flex flex-wrap p-3 justify-center">
       <section className="border-2 p-3  rounded-md border-neutral bg-primary my-4">
         {
-          (cart.totalPrice)?  <h2 className="btn  text-lg font-semibold">Total Price : ₹{cart.totalPrice}</h2>  :  <h2 className="btn text-lg font-semibold">Total Price : ₹0</h2> 
+          (cart.totalPrice)?  <h2 className="btn  rounded-md  text-lg font-semibold">Total Price : ₹{cart.totalPrice}</h2>  :  <h2 className="btn text-lg font-semibold">Total Price : ₹0</h2> 
 
         }
-       
+      
+        </section>
+        <section className="border-2 p-3 m-3 rounded-md border-neutral bg-primary my-4">
+        <h2 className="btn  rounded-md text-lg font-semibold">Place Order!</h2> 
+   
         </section>
         <section className=" w-full min-h-content min-w-80 ">
           <div className="main m-auto   w-full ">
@@ -63,7 +67,7 @@ export default function Cart() {
                   {products.map((ele, i) => {
                     return (
                       <React.Fragment key={i}>
-                        <div className="card card-compact overflow-hidden w-80 min-w-64  m-2    bg-neutral-content btn-ghost transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-xl  ">
+                        <div className="card card-compact overflow-hidden w-80 min-w-64  m-2    bg-neutral-content btn-ghost transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-xl ">
                           <img
                             className="rounded-lg  h-44 "
                             id="card-img"

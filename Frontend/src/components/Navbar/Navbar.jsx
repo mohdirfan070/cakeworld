@@ -195,7 +195,7 @@ function Navbar() {
                   )}
 
                   {/* <span className="font-bold text-lg">3 Items</span> */}
-                  <span className="text-pretty font-semibold">Subtotal: ₹{(cart.totalPrice)?cart.totalPrice:0 }</span>
+                  <span className="text-pretty font-semibold">Subtotal: <span className="text-success">₹{(cart.totalPrice)?cart.totalPrice:0 }</span></span>
                   <div className="card-actions">
                     <Link to={"/cart"}>
                     <button  className="btn btn-primary btn-block">
