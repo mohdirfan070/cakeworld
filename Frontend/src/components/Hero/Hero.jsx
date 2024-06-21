@@ -14,7 +14,7 @@ function Hero() {
     
       <h1 className="text-5xl font-bold">We Bake You Enjoy</h1>
       <p className="py-6">Baked with love ,from Oven to Heart. Where Every Slice is Joyfull  </p>
-    <Link to={"/products"}>   <button className="btn btn-primary">Order Now!</button> </Link>
+    <Link to={"/products"}>   <button className="btn btn-primary rounded-lg">Order Now!</button> </Link>
     </div>
   </div>
 </div>
