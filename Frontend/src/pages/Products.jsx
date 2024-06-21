@@ -10,7 +10,7 @@ export default function Products() {
   let [toast, setToast] = useState(false);
   let [gotData, setGotData] = useState(false);
   let [quantity, setQuantity] = useState("1");
-  let [msg, setMsg] = useState("no messege");
+  let [msg, setMsg] = useState("");
   // const audio = new Audio(Sound);
 
   const fetchProducts = async () => {
@@ -37,6 +37,9 @@ export default function Products() {
 
   const handleOrder = async (e) => {
     if (localStorage.getItem("login")) {
+      if(msg==""){
+        setMsg("No messege");
+      }
       const userData = {
         username: localStorage.getItem("username"),
         password: localStorage.getItem("password"),
