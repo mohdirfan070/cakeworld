@@ -50,7 +50,7 @@ export default function Products() {
         await axios
           .post("https://cakeworld-production.up.railway.app/api/additemtocart", userData)
           .then((result) => {
-             console.log(result.data);
+            //  console.log(result.data);
             play();
             setToast(true);
             setMsg("");

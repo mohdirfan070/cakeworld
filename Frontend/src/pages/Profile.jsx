@@ -73,7 +73,7 @@ export default function Profile() {
       return null;
     } else {
        let result = await axios.put("https://cakeworld-production.up.railway.app/api/updateuser" , user ) ;
-       console.log(result);
+      //  console.log(result);
       // console.log(user);
       setEdit(false);
     }

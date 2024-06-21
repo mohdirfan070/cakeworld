@@ -26,7 +26,7 @@ export default function Cart() {
       username,
       cartId,
     }).then((result)=>{
-      console.log(result.data.result);
+      // console.log(result.data.result);
       setCart({...result.data.result});
       let arr = result.data.result.prodList;
       setProducts([...arr]);
