@@ -48,7 +48,7 @@ function Navbar() {
    
     let sendData = { username, password };
     await axios
-      .post("https://cakeworld-production.up.railway.app/api/getuserdata", sendData)
+      .post("https://cakeworld.onrender.com/api/getuserdata", sendData)
       .then((result) => {
         // https://cakeworld-production.up.railway.app
         // console.log("This is from Navbar");
@@ -64,7 +64,7 @@ function Navbar() {
 
     const getCart = async()=>{
       let cartId = localStorage.getItem("cartId") || false;
-      await axios.post(`https://cakeworld-production.up.railway.app/api/getcartproducts`, { cartId } ).then((result)=>{
+      await axios.post(`https://cakeworld.onrender.com/api/getcartproducts`, { cartId } ).then((result)=>{
        
         // console.log(result.data.result);
         setCart({...result.data.result});
