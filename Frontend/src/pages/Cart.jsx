@@ -95,7 +95,7 @@ export default function Cart() {
     <p className="pt-4">Place order for  <span className="font-semibold"> ₹{(cart.totalPrice)?cart.totalPrice:0}</span> </p>
     <p className="pt-2">Delievery Charges <span className="font-semibold"> +₹40 </span></p>
     <p className="pt-2">Total Charges : <span className="font-semibold">₹{ eval(`${cart.totalPrice}+40`) } </span></p>
-    <p className="pt-2 "><span className="text-error font-medium">Note </span> : Order will arrive within <b> 4hours</b> of order confirmed with payment <br />Please write your Ph.no as messege for payments</p>
+    <p className="pt-2 "><span className="text-error font-medium">Note </span> : Order will arrive within <b> 4hours</b> of order confirmed with payment <br />Please write your <b>Ph.no</b> as messege for payments</p>
 
     <div className="modal-action">
       <form method="dialog">
