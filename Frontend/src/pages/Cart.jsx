@@ -3,7 +3,7 @@ import Navbar from "../components/Navbar/Navbar";
 import axios from "axios";
 import Footer from "../components/Footer/Footer.jsx";
 import { Link } from "react-router-dom";
-
+import DelIcon from '../assets/deleteIcon.png'
 export default function Cart() {
   let [cart, setCart] = useState([]);
   let [products,setProducts]=useState([]);
@@ -84,12 +84,14 @@ export default function Cart() {
                           </div>
                           <div className="card-actions justify-center mb-4">
                             <button
-                              onClick={() => {
+                          
+                              onClick={(e) => {
                                 removeCartProduct(ele._id,ele.quantity ,ele.uuId , ele.price);
                               }}
                               className="btn   bg-neutral-content btn-outline focus:bg-neutral focus:text-neutral-content"
                             >
                               Remove
+                             <img className="h-6" src={DelIcon} alt="" />
                             </button>
                           </div>
                         </div>
