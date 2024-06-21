@@ -10,7 +10,7 @@ export default function Products() {
   let [toast, setToast] = useState(false);
   let [gotData, setGotData] = useState(false);
   let [quantity, setQuantity] = useState("1");
-  let [msg, setMsg] = useState(null);
+  let [msg, setMsg] = useState("no messege");
   // const audio = new Audio(Sound);
 
   const fetchProducts = async () => {
