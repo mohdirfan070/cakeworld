@@ -15,14 +15,14 @@ export default function Cart() {
     // console.log(newproductPrice);
     let givenData = { productId, cartId , productQuantity, productMsg , newproductPrice};
     let result = await axios.post(
-      "https://cakeworld.onrender.com/api/removecartproduct",
+      "https://cakeworld-production.up.railway.app/api/removecartproduct",
       givenData
     );
     console.log(result);
   };
 
   const fetchCartProducts = async () => {
-    await axios.post(`https://cakeworld.onrender.com/api/getcartproducts`, {
+    await axios.post(`https://cakeworld-production.up.railway.app/api/getcartproducts`, {
       username,
       cartId,
     }).then((result)=>{
