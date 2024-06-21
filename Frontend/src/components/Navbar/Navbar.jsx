@@ -50,6 +50,7 @@ function Navbar() {
     await axios
       .post("https://cakeworld-production.up.railway.app/api/getuserdata", sendData)
       .then((result) => {
+        // https://cakeworld-production.up.railway.app
         // console.log("This is from Navbar");
           // console.log(result.data);
         setUser({ ...result.data });

@@ -10,10 +10,10 @@ export default function Cart() {
   let [quantity, setQuantity] = useState("1");
   const username = localStorage.getItem("username") || false;
   const cartId = localStorage.getItem("cartId") || false;
-  let removeCartProduct = async (productId,productQuantity,productMsg,productPrice )=> {
+  let removeCartProduct = async (productId,productQuantity,productuuId,productPrice )=> {
     let newproductPrice = eval(productQuantity * productPrice);
     // console.log(newproductPrice);
-    let givenData = { productId, cartId , productQuantity, productMsg , newproductPrice};
+    let givenData = { productId, cartId , productQuantity, productuuId , newproductPrice};
     let result = await axios.post(
       "https://cakeworld-production.up.railway.app/api/removecartproduct",
       givenData
@@ -48,7 +48,11 @@ export default function Cart() {
       <Navbar />
       <div className="parent-div pt-20 flex flex-wrap p-3 justify-center">
       <section className="border-2 p-3 rounded-md border-neutral bg-primary my-4">
-        <h2 className="btn text-lg font-semibold">Total Price : ₹{cart.totalPrice}</h2> 
+        {
+          (cart.totalPrice)?  <h2 className="btn text-lg font-semibold">Total Price : ₹{cart.totalPrice}</h2>  :  <h2 className="btn text-lg font-semibold">Total Price : ₹0</h2> 
+
+        }
+       
         </section>
         <section className=" w-full min-h-content min-w-80 ">
           <div className="main m-auto   w-full ">
@@ -81,7 +85,7 @@ export default function Cart() {
                           <div className="card-actions justify-center mb-4">
                             <button
                               onClick={() => {
-                                removeCartProduct(ele._id,ele.quantity ,ele.msg , ele.price);
+                                removeCartProduct(ele._id,ele.quantity ,ele.uuId , ele.price);
                               }}
                               className="btn   bg-neutral-content btn-outline focus:bg-neutral focus:text-neutral-content"
                             >
