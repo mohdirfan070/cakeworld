@@ -14,11 +14,15 @@ const removeProduct = async(req, res )=>{
   
    let newArr  = result.prodList.filter((ele)=>ele.uuId!=productuuId);
   // console.log(newArr);
-    if(result.totalPrice>0 &&  result.quantity>0){
-     result.totalPrice-=newproductPrice;
-     result.quantity-=1;
+    if(result.totalPrice<0 &&  result.quantity<0){
+     result.totalPrice=0;
+     result.quantity=0; 
    result  = await Cart.findByIdAndUpdate(cartId,{prodList:newArr,quantity:result.quantity,totalPrice:result.totalPrice},{new:true});
-   }
+    }else{
+      result.totalPrice-=newproductPrice;
+     result.quantity-=1; 
+      result  = await Cart.findByIdAndUpdate(cartId,{prodList:newArr,quantity:result.quantity,totalPrice:result.totalPrice},{new:true})
+    }
 
   
   // console.log(result);
