@@ -11,7 +11,12 @@ const addToCart = async (req, res) => {
     let { username, password, productId, cartId, quantity, msg } = req.body;
     //  console.log("This is CartID:"+cartId);
     let product = await Product.findById(productId);
-    product.msg = msg;
+    if(msg==""){
+       msg=="No message";
+    }else{
+        product.msg = msg;
+    }
+    
     product.quantity = quantity;
     product.uuId = uuidv4();
     //   console.log(product);
