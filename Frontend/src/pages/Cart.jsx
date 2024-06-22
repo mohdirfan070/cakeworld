@@ -3,7 +3,8 @@ import Navbar from "../components/Navbar/Navbar";
 import axios from "axios";
 import Footer from "../components/Footer/Footer.jsx";
 import { Link } from "react-router-dom";
-import DelIcon from '../assets/deleteIcon.png'
+import DelIcon from '../assets/deleteIcon.png';
+import QuickChart from 'quickchart-js';
 export default function Cart() {
   let [cart, setCart] = useState([]);
   // let[user,setUser]=useState({
@@ -15,7 +16,7 @@ export default function Cart() {
   const username = localStorage.getItem("username") || false;
   const password = localStorage.getItem("password") || false;
   const cartId = localStorage.getItem("cartId") || false;
-
+let [qrurl,setQrurl]=useState("");
 
  
   const getUser=async()=>{
@@ -65,7 +66,9 @@ export default function Cart() {
     }, 1000);
     // fetchCartProducts();
   }
- 
+  
+
+
   return (
     <>
       <Navbar />
@@ -81,7 +84,7 @@ export default function Cart() {
         </section>
         {
           (cart.quantity>0)? <>
-             <section onClick={()=>document.getElementById('my_modal_1').showModal()} className="border-2 p-3 m-3 rounded-md border-neutral bg-primary my-4">
+             <section onClick={()=>document.getElementById('my_modal_1').showModal()  } className="border-2 p-3 m-3 rounded-md border-neutral bg-primary my-4">
         <h2  className="btn  rounded-md text-lg font-semibold">Place Order!</h2> 
            </section>
           </>:
@@ -96,13 +99,13 @@ export default function Cart() {
     <p className="pt-2">Delievery Charges <span className="font-semibold"> +₹40 </span></p>
     <p className="pt-2">Total Charges : <span className="font-semibold">₹{ eval(`${cart.totalPrice}+40`) } </span></p>
     <p className="pt-2 "><span className="text-error font-medium">Note </span> : Order will arrive within <b> 4hours</b> of order confirmed with payment. <br />Please write your <b>Ph.no</b> as messege for payments. <br />Please wait your order will be confirmed within <b>30min</b> after payment is done  </p>
-
+   <img src={qrurl} alt="QrCode" />
     <div className="modal-action">
       <form method="dialog">
         {/* if there is a button in form, it will close the modal */}
-        <button className="btn w-20">Close</button>
+        <button className="btn w-20 rounded-md ">Close</button>
       </form>
-   <a href={`upi://pay?pa=9538321498@ibl&pn=${userMobileNumber.current}&cu=INR&am=${eval(`${cart.totalPrice}+40`)}`} > <button className="btn font-bold w-20 ">Pay</button> </a>
+   <a href={`upi://pay?pa=9538321498@ibl&pn=${userMobileNumber.current}&cu=INR&am=${eval(`${cart.totalPrice}+40`)}`} > <button className="btn font-bold w-20 bg-neutral text-neutral-content rounded-md ">Pay</button> </a>
     </div>
   </div>
 </dialog>

@@ -49,7 +49,7 @@ export default function Products() {
       // console.log(userData);
       try {
         await axios
-          .post("https://cakeworld-production.up.railway.app/api/additemtocart", userData)
+          .post("https://cakeworld.onrender.com/api/additemtocart", userData)
           .then((result) => {
             //  console.log(result.data);
             play();

@@ -43,9 +43,9 @@ export default function AddProduct() {
     ) {
       setRes(true);
     } else {
-      console.log(inpData);
+      // console.log(inpData);
       let result = await axios.post(
-        "https:/cakeworld.onrender.com/api/addproduct",
+        "https://cakeworld.onrender.com/api/addproduct",
         inpData
       );
       // console.log(result);

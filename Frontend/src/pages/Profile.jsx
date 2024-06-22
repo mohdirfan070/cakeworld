@@ -22,7 +22,7 @@ export default function Profile() {
     if(localStorage.getItem("username")){
       let  username  = localStorage.getItem("username");
       let result = await axios.post(
-        "https://cakeworld-production.up.railway.app/api/getuserprofile",
+        "https://cakeworld.onrender.com/api/getuserprofile",
        { username}
       );
       // console.log(result.data);
