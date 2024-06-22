@@ -22,7 +22,7 @@ const productSchema = new mongoose.Schema({
     },
     msg:{
         type: String,
-        default:"no messege form customer"
+        default:"no messege"
     },
     uuId:{
         type:String,
