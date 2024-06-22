@@ -75,13 +75,14 @@ let [qrurl,setQrurl]=useState("");
       {/* The button to open modal */}
 
       <div className="parent-div pt-20 flex flex-wrap p-3 justify-center">
-      <section className="border-2 p-3  rounded-md border-neutral bg-primary my-4">
-        {
-          (cart.totalPrice>0)?  <h2 className="btn  rounded-md  text-lg font-semibold">Total Price : ₹{cart.totalPrice}</h2>  :  " "
+      
+        {(cart.totalPrice>0)?
+          <section className="border-2 p-3  rounded-md border-neutral bg-primary my-4">
+            <h2 className="btn  rounded-md  text-lg font-semibold">Total Price : ₹{cart.totalPrice}</h2> </section> :  " "
 
         }
       
-        </section>
+        
         {
           (cart.quantity>0)? <>
              <section onClick={()=>document.getElementById('my_modal_1').showModal()  } className="border-2 p-3 m-3 rounded-md border-neutral bg-primary my-4">
