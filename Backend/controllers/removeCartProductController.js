@@ -16,7 +16,8 @@ const removeProduct = async(req, res )=>{
   // console.log(newArr);
     if(result.totalPrice<=0 ||  result.quantity<=0){
      result.totalPrice=0;
-     result.quantity=0; 
+     result.quantity=0;
+      newArr.length=0;
    result  = await Cart.findByIdAndUpdate(cartId,{prodList:newArr,quantity:result.quantity,totalPrice:result.totalPrice},{new:true});
     }else{
       result.totalPrice-=newproductPrice;
