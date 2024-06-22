@@ -14,7 +14,7 @@ export default function Products() {
   // const audio = new Audio(Sound);
 
   const fetchProducts = async () => {
-    let result = await axios.get("https://cakeworld.onrender.com/api/products");
+    let result = await axios.get("http://localhost:8080/api/products");
     let arr = result.data;
     setGotData([...arr]);
     // audio.play();
