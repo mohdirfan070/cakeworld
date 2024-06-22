@@ -64,7 +64,7 @@ let [qrurl,setQrurl]=useState("");
     setTimeout(() => {
       fetchCartProducts();
     }, 1000);
-    // fetchCartProducts();
+    //<h2 className="btn text-lg font-semibold">Total Price : ₹0</h2>  fetchCartProducts();
   }
   
 
@@ -77,7 +77,7 @@ let [qrurl,setQrurl]=useState("");
       <div className="parent-div pt-20 flex flex-wrap p-3 justify-center">
       <section className="border-2 p-3  rounded-md border-neutral bg-primary my-4">
         {
-          (cart.totalPrice)?  <h2 className="btn  rounded-md  text-lg font-semibold">Total Price : ₹{cart.totalPrice}</h2>  :  <h2 className="btn text-lg font-semibold">Total Price : ₹0</h2> 
+          (cart.totalPrice>0)?  <h2 className="btn  rounded-md  text-lg font-semibold">Total Price : ₹{cart.totalPrice}</h2>  :  " "
 
         }
       
