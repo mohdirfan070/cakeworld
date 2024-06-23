@@ -107,15 +107,19 @@ let [qrurl,setQrurl]=useState("");
     <p className="pt-2">Delievery Charges <span className="font-semibold"> +₹40 </span></p>
     <p className="pt-2">Total Charges : <span className="font-semibold">₹{ eval(`${cart.totalPrice}+40`) } </span></p>
     <p className="pt-2 "><span className="text-error font-medium">Note </span> : Order will arrive within <b> 4hours</b> of order confirmed with payment. <br />Please write your <b>Ph.no</b> as messege for payments. <br />Please wait your order will be confirmed within <b>30min</b> after payment is done  </p>
-   <img src={qrurl} alt="QrCode" />
+   
     <div className="modal-action">
       <form method="dialog">
         {/* if there is a button in form, it will close the modal */}
         <button className="btn w-20 rounded-md ">Close</button>
       </form>
+<<<<<<< HEAD
    <a href={`upi://pay?pa=9538321498@ibl&pn=${userMobileNumber.current}&cu=INR&am=${eval(`${cart.totalPrice}+40`)}`} > 
    {/* <button >Pay</button> */}
    <button  className="btn font-bold w-20 bg-neutral text-neutral-content rounded-md ">Pay</button> </a>
+=======
+   <a href={`upi://pay?pa=irfan853pvt-1@oksbi&pn=${userMobileNumber.current}&cu=INR&am=${eval(`${cart.totalPrice}+40`)}`} > <button className="btn font-bold w-20 bg-neutral text-neutral-content rounded-md ">Pay</button> </a>
+>>>>>>> 2c99c32a5121ec870f72e469b1818631fcaa80a5
     </div>
   </div>
 </dialog>
