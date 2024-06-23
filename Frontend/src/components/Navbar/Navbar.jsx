@@ -107,18 +107,18 @@ function Navbar() {
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-md dropdown-content mt-3 z-[1] p-2 shadow-2xl rounded-box min-w-80 max-w-xl border-2 border-neutral bg-neutral-content"
+              className="menu menu-md dropdown-content mt-3 z-[1] p-2 shadow-2xl rounded-md min-w-80 max-w-xl border-2 border-neutral bg-neutral-content"
             >
               <li>
                 {" "}
-                <Link  to={"/home"}> Home </Link>
+                <Link className="rounded-sm " to={"/home"}> Home </Link> 
               </li>
               <li>
-                <Link to={"/products"}>Products</Link>
+                <Link className="rounded-sm" to={"/products"}>Products</Link>
               </li>
               {
                 (login)? <li>
-                <Link to={"/orders"}>Orders</Link>
+                <Link className="rounded-sm" to={"/orders"}>Orders</Link>
               </li> : " "
               }
              
@@ -126,10 +126,10 @@ function Navbar() {
               {isAdmin ? ( 
                 <>
                 <li>
-                <Link to={"/about"}>About</Link>
+                <Link className="rounded-sm" to={"/about"}>About</Link>
               </li>
                 <li>
-                  <Link to={"/addproducts"}>Add Products</Link>
+                  <Link className="rounded-sm" to={"/addproducts"}>Add Products</Link>
                 </li>
                 </>
               ) : (
