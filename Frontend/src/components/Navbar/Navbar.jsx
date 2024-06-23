@@ -107,11 +107,11 @@ function Navbar() {
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-lg dropdown-content mt-3 z-[1] p-2 shadow-2xl bg-base-100 rounded-box w-96"
+              className="menu menu-md dropdown-content mt-3 z-[1] p-2 shadow-2xl rounded-box min-w-80 max-w-xl border-2 border-neutral bg-neutral-content"
             >
               <li>
                 {" "}
-                <Link to={"/home"}> Home </Link>
+                <Link  to={"/home"}> Home </Link>
               </li>
               <li>
                 <Link to={"/products"}>Products</Link>
