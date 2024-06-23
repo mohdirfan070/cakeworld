@@ -4,7 +4,6 @@ import axios from "axios";
 import Footer from "../components/Footer/Footer.jsx";
 import { Link } from "react-router-dom";
 import DelIcon from '../assets/deleteIcon.png';
-import QuickChart from 'quickchart-js';
 export default function Cart() {
   let [cart, setCart] = useState([]);
   // let[user,setUser]=useState({
@@ -67,6 +66,13 @@ let [qrurl,setQrurl]=useState("");
     //<h2 className="btn text-lg font-semibold">Total Price : ₹0</h2>  fetchCartProducts();
   }
   
+  const generateQr = ()=>{
+        setQrurl(`https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=upi://pay?pa=9538321498@ibl&pn=${userMobileNumber.current}&cu=INR&am=${cart.totalPrice+40}`);
+  }
+
+  useEffect(()=>{
+    generateQr();
+  },[products.length]);
 
 
   return (
@@ -86,6 +92,7 @@ let [qrurl,setQrurl]=useState("");
         {
           (cart.quantity>0)? <>
              <section onClick={()=>document.getElementById('my_modal_1').showModal()  } className="border-2 p-3 m-3 rounded-md border-neutral bg-primary my-4">
+            
         <h2  className="btn  rounded-md text-lg font-semibold">Place Order!</h2> 
            </section>
           </>:
@@ -106,7 +113,9 @@ let [qrurl,setQrurl]=useState("");
         {/* if there is a button in form, it will close the modal */}
         <button className="btn w-20 rounded-md ">Close</button>
       </form>
-   <a href={`upi://pay?pa=9538321498@ibl&pn=${userMobileNumber.current}&cu=INR&am=${eval(`${cart.totalPrice}+40`)}`} > <button className="btn font-bold w-20 bg-neutral text-neutral-content rounded-md ">Pay</button> </a>
+   <a href={`upi://pay?pa=9538321498@ibl&pn=${userMobileNumber.current}&cu=INR&am=${eval(`${cart.totalPrice}+40`)}`} > 
+   {/* <button >Pay</button> */}
+   <button  className="btn font-bold w-20 bg-neutral text-neutral-content rounded-md ">Pay</button> </a>
     </div>
   </div>
 </dialog>
@@ -184,6 +193,7 @@ let [qrurl,setQrurl]=useState("");
       </div>
       
       <Footer />
+      
     </>
   );
 }
