@@ -113,13 +113,10 @@ let [qrurl,setQrurl]=useState("");
         {/* if there is a button in form, it will close the modal */}
         <button className="btn w-20 rounded-md ">Close</button>
       </form>
-<<<<<<< HEAD
    <a href={`upi://pay?pa=9538321498@ibl&pn=${userMobileNumber.current}&cu=INR&am=${eval(`${cart.totalPrice}+40`)}`} > 
    {/* <button >Pay</button> */}
    <button  className="btn font-bold w-20 bg-neutral text-neutral-content rounded-md ">Pay</button> </a>
-=======
-   <a href={`upi://pay?pa=irfan853pvt-1@oksbi&pn=${userMobileNumber.current}&cu=INR&am=${eval(`${cart.totalPrice}+40`)}`} > <button className="btn font-bold w-20 bg-neutral text-neutral-content rounded-md ">Pay</button> </a>
->>>>>>> 2c99c32a5121ec870f72e469b1818631fcaa80a5
+  
     </div>
   </div>
 </dialog>
