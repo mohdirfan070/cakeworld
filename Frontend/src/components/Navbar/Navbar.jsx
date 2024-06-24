@@ -107,7 +107,7 @@ function Navbar() {
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-md dropdown-content mt-3 z-[1] p-2 shadow-2xl rounded-md min-w-80 max-w-xl border-2 border-neutral bg-neutral-content"
+              className="menu menu-md dropdown-content mt-3 z-[1] p-2 shadow-2xl rounded-md min-w-80 max-w-xl border-2 border-neutral bg-neutral-content "
             >
               <li>
                 {" "}
