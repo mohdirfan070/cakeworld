@@ -108,27 +108,30 @@ let [qrurl,setQrurl]=useState("");
     <p className="pt-2">Total Charges : <span className="font-semibold">₹{ eval(`${cart.totalPrice}+40`) } </span></p>
 
     <div className="flex flex-col align-middle rounded-md justify-center w-full  border-4 p-4 border-neutral mt-3">
-   <img className="rounded-md" src={`https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=upi%3A%2F%2Fpay%3Fpa%3D9538321498%40ibl%26pn%3Dmohammed%20Irfan%26am%3D${eval(`${cart.totalPrice}+40`)}%26cu%3DINR`} alt="" />
+   <img className="rounded-md w-52 self-center" src={`https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=upi%3A%2F%2Fpay%3Fpa%3D9538321498%40ibl%26pn%3Dmohammed%20Irfan%26am%3D${eval(`${cart.totalPrice}+40`)}%26cu%3DINR`} alt="" />
    <section className="flex flex-col justify-centre py2 my-3">
-   <h1 className=" rounded-md  w-22 underline text-wrap ">Scan me with your payments app and write the <b>UTR</b> number here</h1>
-   <p className="tooltip block"  data-tip="ex: 4987645312 ">
-   <input type="text" className="input rounded-sm border mt-2 outline " placeholder="UTR-number" />
+   <h1 className=" rounded-md font-medium w-22  text-wrap ">Scan me with your payments app and write the <b className="underline">UTR</b> number here</h1>
+   <p className="tooltip tooltip-bottom"  data-tip="ex: 493456789101 ">
+   <input type="text" className="input rounded-sm border mt-2 outline-double " placeholder="UTR-number" />
    </p>
    </section>
   
-   </div>
 
     <div className="modal-action">
       <form method="dialog">
         {/* if there is a button in form, it will close the modal */}
-        <button className="btn w-20 rounded-md ">Close</button>
+        <button className="btn w-20 rounded-md ">Cancel</button>
       </form>
    <a href={`upi://pay?pa=9538321498@ibl&cu=INR&am=${eval(`${cart.totalPrice}+40`)}`} > 
    {/* <button >Pay</button> */}</a>
    <form method="dialog">
-   <button className="btn font-bold w-20 bg-neutral text-neutral-content rounded-md hover:bg-neutral-content hover:text-neutral ">Done</button> 
+   <button className="btn font-bold w-48 bg-neutral text-neutral-content rounded-md hover:bg-neutral-content hover:text-neutral ">Done</button> 
    </form>
        </div>
+
+   </div>
+
+   
 
     <p className="pt-2 "><span className="text-error font-medium">Note </span> : Order will arrive within <b> 4hours</b> of order confirmed with payment. <br />Please write your <b>Ph.no</b> as messege for payments. <br />Please wait your order will be confirmed within <b>30min</b> after payment is <b>Done</b>  </p>
 
