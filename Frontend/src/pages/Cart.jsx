@@ -107,7 +107,7 @@ let [qrurl,setQrurl]=useState("");
     <p className="pt-2">Delievery Charges <span className="font-semibold"> +₹40 </span></p>
     <p className="pt-2">Total Charges : <span className="font-semibold">₹{ eval(`${cart.totalPrice}+40`) } </span></p>
     <p className="pt-2 "><span className="text-error font-medium">Note </span> : Order will arrive within <b> 4hours</b> of order confirmed with payment. <br />Please write your <b>Ph.no</b> as messege for payments. <br />Please wait your order will be confirmed within <b>30min</b> after payment is done  </p>
-   <img src={`https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=upi%3A%2F%2Fpay%3Fpa%3D9538321498%40mobile.npci%26pn%3Dmohammed%20Irfan%26am%3D${ eval(`${cart.totalPrice}+40`)}%26cu%3DINR`} alt="" />
+   <img src={`https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=upi%3A%2F%2Fpay%3Fpa%3D9538321498%40mobile.npci%26pn%3DMohammed%20Irfan%26am%3D${ eval(`${cart.totalPrice}+40`)}%26cu%3DINR`} alt="" />
     <div className="modal-action">
       <form method="dialog">
         {/* if there is a button in form, it will close the modal */}
