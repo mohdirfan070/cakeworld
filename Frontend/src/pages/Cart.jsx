@@ -108,7 +108,7 @@ let [qrurl,setQrurl]=useState("");
     <p className="pt-2">Total Charges : <span className="font-semibold">₹{ eval(`${cart.totalPrice}+40`) } </span></p>
 
     <div className="flex flex-col align-middle rounded-md justify-center w-full  border-4 p-4 border-neutral mt-3">
-   <img className="rounded-lg w-52 self-center" src={`https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=upi%3A%2F%2Fpay%3Fpa%3D9538321498%40ibl%26pn%3Dmohammed%20Irfan%26am%3D${eval(`${cart.totalPrice}+40`)}%26cu%3DINR`} alt="" />
+   <img className="rounded-xl w-52 self-center" src={`https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=upi%3A%2F%2Fpay%3Fpa%3D9538321498%40ibl%26pn%3Dmohammed%20Irfan%26am%3D${eval(`${cart.totalPrice}+40`)}%26cu%3DINR`} alt="" />
    <section className="flex flex-col justify-centre py2 my-3">
    <h1 className=" rounded-md font-medium w-22  text-wrap ">Scan  with your payments app and write the <b className="underline">UTR</b> number here</h1>
    <p className="tooltip tooltip-bottom"  data-tip="ex: 493456789101 ">
