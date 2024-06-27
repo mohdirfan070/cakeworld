@@ -103,9 +103,9 @@ let [qrurl,setQrurl]=useState("");
 <dialog id="my_modal_1" className="modal">
   <div className="modal-box">
     <h3 className="font-bold text-lg border-b-4 border-neutral">Checkout</h3> 
-    <p className="pt-4">Place order for  <span className="font-semibold"> ₹{(cart.totalPrice)?cart.totalPrice:0}</span> </p>
-    <p className="pt-2">Delievery Charges <span className="font-semibold"> +₹40 </span></p>
-    <p className="pt-2">Total Charges : <span className="font-semibold">₹{ eval(`${cart.totalPrice}+40`) } </span></p>
+    <p className="pt-4">Place order for :       <span className="font-semibold">  ₹{(cart.totalPrice)?cart.totalPrice:0}</span> </p>
+    <p className="pt-2">Delievery Charges :     <span className="font-semibold"> +₹40 </span></p>
+    <p className="pt-2">Total Charges :         <span className="font-semibold">  ₹{ eval(`${cart.totalPrice}+40`) } </span></p>
     <p className="pt-2 "><span className="text-error font-medium">Note </span> : Order will arrive within <b> 4hours</b> of order confirmed with payment. <br />Please write your <b>Ph.no</b> as messege for payments. <br />Please wait your order will be confirmed within <b>30min</b> after payment is done  </p>
    <img src={`https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=upi%3A%2F%2Fpay%3Fpa%3D9538321498%40ibl%26pn%3Dmohammed%20Irfan%26am%3D${eval(`${cart.totalPrice}+40`)}%26cu%3DINR`} alt="" />
     <div className="modal-action">
