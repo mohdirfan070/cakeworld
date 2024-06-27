@@ -101,7 +101,7 @@ let [qrurl,setQrurl]=useState("");
        
 
 <dialog id="my_modal_1" className="modal">
-  <div className="modal-box text-justify">
+  <div className="modal-box text-center">
     <h3 className="font-bold text-lg border-b-4 border-neutral">Checkout</h3> 
     <p className="pt-4">Place order for  <span className="font-semibold"> ₹{(cart.totalPrice)?cart.totalPrice:0}</span> </p>
     <p className="pt-2">Delievery Charges <span className="font-semibold"> +₹40 </span></p>
