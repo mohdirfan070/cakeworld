@@ -4,6 +4,7 @@ import axios from "axios";
 import Footer from "../components/Footer/Footer.jsx";
 import { Link } from "react-router-dom";
 import DelIcon from '../assets/deleteIcon.png';
+
 export default function Cart() {
   let [cart, setCart] = useState([]);
   // let[user,setUser]=useState({
@@ -30,10 +31,10 @@ let [qrurl,setQrurl]=useState("");
 
 
  
-    getUser();
 
 
   let removeCartProduct = async (productId,productQuantity,productuuId,productPrice )=> {
+   
     let newproductPrice = eval(productQuantity * productPrice);
     // console.log(newproductPrice);
     let givenData = { productId, cartId , productQuantity, productuuId , newproductPrice};
@@ -41,9 +42,10 @@ let [qrurl,setQrurl]=useState("");
       "https://cakeworld.onrender.com/api/removecartproduct",
       givenData
     );
-    console.log(result);
-  };
+    // console.log(result);
 
+  };
+  
   const fetchCartProducts = async () => {
     await axios.post(`https://cakeworld.onrender.com/api/getcartproducts`, {
       username,
@@ -66,13 +68,11 @@ let [qrurl,setQrurl]=useState("");
     //<h2 className="btn text-lg font-semibold">Total Price : ₹0</h2>  fetchCartProducts();
   }
   
-  const generateQr = ()=>{
-        setQrurl(`https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=upi://pay?pa=9538321498@ibl&pn=${userMobileNumber.current}&cu=INR&am=${cart.totalPrice+40}`);
-  }
+  
 
   useEffect(()=>{
-    generateQr();
-  },[products.length]);
+    getUser();
+  },[]);
 
 
   return (
@@ -107,17 +107,16 @@ let [qrurl,setQrurl]=useState("");
     <p className="pt-2">Delievery Charges <span className="font-semibold"> +₹40 </span></p>
     <p className="pt-2">Total Charges : <span className="font-semibold">₹{ eval(`${cart.totalPrice}+40`) } </span></p>
     <p className="pt-2 "><span className="text-error font-medium">Note </span> : Order will arrive within <b> 4hours</b> of order confirmed with payment. <br />Please write your <b>Ph.no</b> as messege for payments. <br />Please wait your order will be confirmed within <b>30min</b> after payment is done  </p>
-   
+   <img src={`https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=upi%3A%2F%2Fpay%3Fpa%3D9538321498%40mobile.npci%26pn%3Dmohammed%20Irfan%26am%3D${ eval(`${cart.totalPrice}+40`)}%26cu%3DINR`} alt="" />
     <div className="modal-action">
       <form method="dialog">
         {/* if there is a button in form, it will close the modal */}
         <button className="btn w-20 rounded-md ">Close</button>
       </form>
-   <a href={`upi://pay?pa=9538321498@ibl&pn=${userMobileNumber.current}&cu=INR&am=${eval(`${cart.totalPrice}+40`)}`} > 
-   {/* <button >Pay</button> */}
-   <button  className="btn font-bold w-20 bg-neutral text-neutral-content rounded-md ">Pay</button> </a>
-  
-    </div>
+   <a href={`upi://pay?pa=9538321498@ibl&cu=INR&am=${eval(`${cart.totalPrice}+40`)}`} > 
+   {/* <button >Pay</button> */}</a>
+   <button   className="btn font-bold w-20 bg-neutral text-neutral-content rounded-md ">Pay</button> 
+       </div>
   </div>
 </dialog>
    
