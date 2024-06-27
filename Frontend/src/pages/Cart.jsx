@@ -118,16 +118,6 @@ let [qrurl,setQrurl]=useState("");
   
    </div>
 
-   
-
-    <p className="pt-2 "><span className="text-error font-medium">Note </span> : Order will arrive within <b> 4hours</b> of order confirmed with payment. <br />Please write your <b>Ph.no</b> as messege for payments. <br />Please wait your order will be confirmed within <b>30min</b> after payment is <b>Done</b>  </p>
-
-
-
-  
-
-
-
     <div className="modal-action">
       <form method="dialog">
         {/* if there is a button in form, it will close the modal */}
@@ -139,6 +129,16 @@ let [qrurl,setQrurl]=useState("");
    <button className="btn font-bold w-20 bg-neutral text-neutral-content rounded-md hover:bg-neutral-content hover:text-neutral ">Done</button> 
    </form>
        </div>
+
+    <p className="pt-2 "><span className="text-error font-medium">Note </span> : Order will arrive within <b> 4hours</b> of order confirmed with payment. <br />Please write your <b>Ph.no</b> as messege for payments. <br />Please wait your order will be confirmed within <b>30min</b> after payment is <b>Done</b>  </p>
+
+
+
+  
+
+
+
+   
   </div>
 </dialog>
    
