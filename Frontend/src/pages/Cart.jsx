@@ -109,7 +109,7 @@ let [qrurl,setQrurl]=useState("");
 
     <div className="flex flex-col align-middle rounded-md justify-center w-full  border-4 p-4 border-neutral mt-3">
    <img className="rounded-md" src={`https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=upi%3A%2F%2Fpay%3Fpa%3D9538321498%40ibl%26pn%3Dmohammed%20Irfan%26am%3D${eval(`${cart.totalPrice}+40`)}%26cu%3DINR`} alt="" />
-   <section className="">
+   <section className="flex flex-col justify-centre py2 my-3">
    <h1 className=" rounded-md  w-22 underline text-wrap ">Scan me with your payments app and write the <b>UTR</b> number here</h1>
    <p className="tooltip block"  data-tip="ex: 4987645312 ">
    <input type="text" className="input rounded-sm border mt-2 outline " placeholder="UTR-number" />
