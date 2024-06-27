@@ -84,7 +84,7 @@ let [qrurl,setQrurl]=useState("");
       
         {(cart.totalPrice>0)?
           <section className="border-2 p-3  rounded-md border-neutral bg-primary my-4">
-            <h2 className="btn  rounded-md  text-lg font-semibold">Total Price : ₹{cart.totalPrice}</h2> </section> :  " "
+            <h2 className="btn   rounded-md  text-lg font-semibold">Total Price : ₹{cart.totalPrice}</h2> </section> :  " "
 
         }
       
