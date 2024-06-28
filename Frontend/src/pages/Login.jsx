@@ -188,7 +188,7 @@ export default function Login() {
               <div className="login hidden ">
                 <button
                   onClick={hide} value={'login'}
-                  className="mx-20 mb-6 font-semibold btn-link"
+                  className="mx-16 mb-6 font-semibold btn-link"
                 >
                   new user?
                 </button>
