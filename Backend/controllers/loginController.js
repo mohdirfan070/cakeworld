@@ -24,7 +24,7 @@ const addUser = async (req, res) => {
             { name, username, password, mobileNumber, address, pincode ,  cart:cartId , profileImg ,gender }
         );
       await newCustomer.save().then((result) => {     
-        res.json(result);
+        res.status(200).json(result);
     }) .catch((err) => {
         console.log(err);
     });
