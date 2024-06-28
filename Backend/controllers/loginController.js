@@ -3,10 +3,12 @@ const Customer = require('../models/customerSchema');
 const Cart = require("../models/cartSchema");
 const addUser = async (req, res) => {
    
-    let { name, username, password, mobileNumber, address, pincode , gender , profileImg    } = req.body;
+    let { name, username, password, mobileNumber, address, pincode , gender , profileImg ,loginUsername , loginPassword   } = req.body;
    
     // console.log({ name, username, password, mobileNumber, address, pincode });
-   
+    if(loginUsername!=''){
+        username = loginUsername;
+    }
     if(await Customer.findOne({username})){
         let result =  await Customer.findOne({username});
         res.status(200).json(result);
