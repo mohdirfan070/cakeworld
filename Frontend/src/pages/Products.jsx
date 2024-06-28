@@ -56,7 +56,7 @@ export default function Products() {
             setToast(true);
             setMsg("");
             setQuantity("1");
-            fetchProducts();
+          //  fetchProducts();
             // alert("Product Added to Cart Successfully!");
             setTimeout(() => {
               setToast(false);
