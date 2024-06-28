@@ -6,10 +6,9 @@ const addUser = async (req, res) => {
     let { name, username, password, mobileNumber, address, pincode , gender , profileImg ,loginUsername , loginPassword   } = req.body;
    
     // console.log({ name, username, password, mobileNumber, address, pincode ,loginUsername , loginPassword  });
-    if(loginUsername!=''){
-        username = loginUsername;
-        let result =  await Customer.findOne({username});
-        // console.log(result);
+    if(loginUsername){
+        let result =  await Customer.findOne({username:loginUsername});
+        console.log(result);
         res.status(200).json(result);
     }else{
     // if(await Customer.findOne({username})){
