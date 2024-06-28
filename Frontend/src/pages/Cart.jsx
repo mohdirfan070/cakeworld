@@ -100,7 +100,7 @@ let [qrurl,setQrurl]=useState("");
         }
        
 
-<dialog id="my_modal_1" className="modal">
+<dialog id="my_modal_1" className="modal ">
   <div className="modal-box text-center">
     <h3 className="font-bold text-lg border-b-4 border-neutral">Checkout</h3> 
     <p className="pt-4">Place order for  <span className="font-semibold"> ₹{(cart.totalPrice)?cart.totalPrice:0}</span> </p>
@@ -108,9 +108,9 @@ let [qrurl,setQrurl]=useState("");
     <p className="pt-2">Total Charges : <span className="font-semibold">₹{ eval(`${cart.totalPrice}+40`) } </span></p>
 
     <div className="flex flex-col align-middle rounded-md justify-center w-full  border-4 p-4 border-neutral mt-3">
-   <img className="rounded-md w-52 self-center" src={`https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=upi%3A%2F%2Fpay%3Fpa%3D9538321498%40ibl%26pn%3Dmohammed%20Irfan%26am%3D${eval(`${cart.totalPrice}+40`)}%26cu%3DINR`} alt="" />
+   <img className="rounded-md w-52 self-center shadow-xl" src={`https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=upi%3A%2F%2Fpay%3Fpa%3D9538321498%40ibl%26pn%3Dmohammed%20Irfan%26am%3D${eval(`${cart.totalPrice}+40`)}%26cu%3DINR`} alt="" />
    <section className="flex flex-col justify-centre py2 my-3">
-   <h1 className=" rounded-md font-medium w-22  text-wrap ">Scan  with your payments app and write the <b className="underline">UTR</b> number here</h1>
+   <h1 className=" rounded-md font-medium w-22  text-wrap ">Scan  with your payments app and write the <a href="https://www.inmyview.in/wp-content/uploads/2024/02/utr-number-upi-apps.jpg.webp"><b className="underline link-info">UTR</b></a>  number here</h1>
    <p className="tooltip tooltip-bottom"  data-tip="ex: 493456789101 ">
    <input type="text" className="input rounded-sm border mt-2 outline-double " placeholder="UTR-number" />
    </p>
@@ -125,7 +125,7 @@ let [qrurl,setQrurl]=useState("");
    <a href={`upi://pay?pa=9538321498@ibl&cu=INR&am=${eval(`${cart.totalPrice}+40`)}`} > 
    {/* <button >Pay</button> */}</a>
    <form method="dialog">
-   <button className="btn font-bold w-48 bg-neutral text-neutral-content rounded-md hover:bg-neutral-content hover:text-neutral ">Done</button> 
+   <button className="btn font-bold w-28 bg-neutral text-neutral-content rounded-md hover:bg-neutral-content hover:text-neutral ">Done</button> 
    </form>
        </div>
 
