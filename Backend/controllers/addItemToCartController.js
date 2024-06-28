@@ -12,7 +12,7 @@ const addToCart = async (req, res) => {
     //  console.log("This is CartID:"+cartId);
     let product = await Product.findById(productId);
     if(msg==""){
-       msg=="No message";
+       msg="No message";
     }else{
         product.msg = msg;
     }
