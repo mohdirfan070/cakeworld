@@ -8,12 +8,13 @@ const addUser = async (req, res) => {
     // console.log({ name, username, password, mobileNumber, address, pincode });
     if(loginUsername!=''){
         username = loginUsername;
-        // console.log(username);
-    }
-    if(await Customer.findOne({username})){
         let result =  await Customer.findOne({username});
         res.status(200).json(result);
     }else{
+    // if(await Customer.findOne({username})){
+    //     let result =  await Customer.findOne({username});
+    //     res.status(200).json(result);
+    // }else{
          let customerCart = await Cart();
          await customerCart.save();
          let cartId = customerCart._id;
@@ -28,8 +29,8 @@ const addUser = async (req, res) => {
         console.log(err);
     });
     
-    }
-  
+    // }
+}
 }
 
 module.exports = { addUser };
