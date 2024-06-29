@@ -22,9 +22,7 @@ export default function AddProduct() {
     if (e.target.name == "Image") {
       setInputData({ ...inpData, Image: e.target.value });
     }
-    if (e.target.name == "msg") {
-      setInputData({ ...inpData, msg: e.target.value });
-    }
+   
     if (e.target.name == "description") {
       setInputData({ ...inpData, description: e.target.value });
     }
@@ -35,7 +33,7 @@ export default function AddProduct() {
       price: "",
       Image: "",
       description: "",
-      msg: "",
+     
     });
   };
 
