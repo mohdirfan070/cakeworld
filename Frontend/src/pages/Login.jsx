@@ -128,7 +128,7 @@ export default function Login() {
         inpData
       );
       setLogin(true);
-      console.log(result);
+      // console.log(result);
       localStorage.setItem("login", "true");
       localStorage.setItem("username", result.data.username);
       localStorage.setItem("password", result.data.password);
