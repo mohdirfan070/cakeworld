@@ -8,7 +8,6 @@ export default function Login() {
   const femaleProfileURL =
     "https://thumbs.dreamstime.com/b/female-avatar-profile-icon-round-woman-face-flat-vector-illustration-female-avatar-profile-icon-round-woman-face-102767911.jpg";
   let [loginStatus, setLoginStatus] = useState(false);
-  let [gender, setGender] = useState("male");
   let [inpData, setInputData] = useState({
     name: "",
     username: "",
@@ -16,7 +15,7 @@ export default function Login() {
     mobileNumber: "",
     address: "",
     pincode: "",
-    gender,
+    gender:'male',
     loginUsername:"",
     loginPassword :"",
     profileImg:
@@ -28,8 +27,7 @@ export default function Login() {
   let handleChange = (e) => {
     setRes(false);
     if (e.target.name == "gender") {
-      e.target.value == "male" ? setGender("male") : setGender("female"),
-        setInputData({ ...inpData, profileImg: femaleProfileURL });
+        setInputData({ ...inpData,gender:e.target.value,profileImg: femaleProfileURL });
     }
     if (e.target.name == "name") {
       setInputData({ ...inpData, name: e.target.value });
@@ -69,7 +67,7 @@ export default function Login() {
       mobileNumber: "",
       address: "",
       pincode: "",
-      gender,
+      gender:"male",
       loginUsername:"",
       loginPassword :"",
       profileImg:
@@ -96,7 +94,7 @@ export default function Login() {
       //  console.log(inpData);
       // s://cakeworld.onrender.com
       let result = await axios.post(
-        "https://cakeworld.onrender.com/api/login",
+        "http://cakeworld.onrender.com/api/signup",
         inpData
       );
       setLogin(true);
@@ -126,7 +124,7 @@ export default function Login() {
       //  console.log(inpData);
       // s://cakeworld.onrender.com
       let result = await axios.post(
-        "https://cakeworld.onrender.com/api/login",
+        "http://cakeworld.onrender.com/api/login",
         inpData
       );
       setLogin(true);
