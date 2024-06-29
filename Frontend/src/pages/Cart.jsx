@@ -171,7 +171,7 @@ let [qrurl,setQrurl]=useState("");
                               Size : {ele.quantity}kg
                             </h2>
                             <h2 className="card-title text-base">
-                              Msg : {ele.msg}
+                              Msg :  {(ele.msg=="")? "No messege" : ele.msg}
                             </h2>
                           </div>
                           <div className="card-actions justify-center mb-4">
