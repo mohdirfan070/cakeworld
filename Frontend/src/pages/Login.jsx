@@ -94,7 +94,7 @@ export default function Login() {
       //  console.log(inpData);
       // s://cakeworld.onrender.com
       let result = await axios.post(
-        "http://cakeworld.onrender.com/api/signup",
+        "https://cakeworld.onrender.com/api/signup",
         inpData
       );
       setLogin(true);
@@ -124,7 +124,7 @@ export default function Login() {
       //  console.log(inpData);
       // s://cakeworld.onrender.com
       let result = await axios.post(
-        "http://cakeworld.onrender.com/api/login",
+        "https://cakeworld.onrender.com/api/login",
         inpData
       );
       setLogin(true);
