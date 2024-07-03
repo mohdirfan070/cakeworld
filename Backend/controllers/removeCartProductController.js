@@ -8,7 +8,7 @@ const Cart = require('../models/cartSchema.js');
 
 const removeProduct = async(req, res )=>{
 
-  let { cartId , productId, productQuantity,productuuId , newproductPrice  } = req.body;
+  let { cartId , productId, productQuantity,productuuId , productPrice , newproductPrice  } = req.body;
   
   //try Case
      let result  = await Cart.findById(cartId);
@@ -21,7 +21,8 @@ const removeProduct = async(req, res )=>{
         newArr.length=0;
        result  = await Cart.findByIdAndUpdate(cartId,{prodList:newArr,quantity:result.quantity,totalPrice:result.totalPrice},{new:true})
      }else{
-       result.totalPrice-=newproductPrice;
+      result.totalPrice-= (productPrice*productQuantity);
+      //  result.totalPrice-=newproductPrice;
       result.quantity-=1; 
        result  = await Cart.findByIdAndUpdate(cartId,{$pull:{prodList:{uuId:productuuId}},quantity:result.quantity,totalPrice:result.totalPrice},{new:true});
      }

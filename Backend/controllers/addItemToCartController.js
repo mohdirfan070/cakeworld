@@ -17,18 +17,18 @@ const addToCart = async (req, res) => {
         product.msg = msg;
     }
     
-    product.quantity = quantity;
-    product.uuId = uuidv4();
+ 
     //   console.log(product);
 
     try {
-       
+        product.quantity = quantity;
+        product.uuId = uuidv4();
         let result = await Cart.findById(cartId);
-        //  console.log(result);
+        //   console.log(result);
         result.totalPrice+=(eval(product.price*product.quantity));
         result.quantity=result.quantity+1;
         result = await Cart.findByIdAndUpdate(cartId, { $push:{prodList:product},totalPrice:result.totalPrice,quantity:result.quantity} , {new:true});
-        // console.log(result);
+        //  console.log(result);
         res.json({ result });
         // let cart = result.cart;`
         // res.json({ cart, productId });

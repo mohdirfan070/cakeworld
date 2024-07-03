@@ -37,7 +37,7 @@ let [qrurl,setQrurl]=useState("");
    
     let newproductPrice = eval(productQuantity * productPrice);
     // console.log(newproductPrice);
-    let givenData = { productId, cartId , productQuantity, productuuId , newproductPrice};
+    let givenData = { productId, cartId ,productPrice, productQuantity, productuuId , newproductPrice};
     let result = await axios.post(
       "https://cakeworld.onrender.com/api/removecartproduct",
       givenData
