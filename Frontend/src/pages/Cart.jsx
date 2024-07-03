@@ -69,6 +69,7 @@ let [qrurl,setQrurl]=useState("");
   }
   
   
+  
 
   useEffect(()=>{
     getUser();
@@ -133,7 +134,7 @@ let [qrurl,setQrurl]=useState("");
 
    
 
-    <p className="pt-2 "><span className="text-error font-medium">Note </span> : Order will arrive within <b> 4hours</b> of order confirmed with payment. <br />Please write your <b>Ph.no</b> as messege for payments. <br />Please wait your order will be confirmed within <b>30min</b> after payment is <b>Done</b>  </p>
+    <p className="pt-2 "><span className="text-error font-medium">Note </span> : Order will arrive within <b> 4hours</b> of order confirmed with payment. <br />Please write your <b>Ph.no</b> as messege with payments. <br />Please wait your order will be confirmed within <b>30min</b> after payment is <b>Done</b>  </p>
 
 
 
@@ -177,9 +178,7 @@ let [qrurl,setQrurl]=useState("");
                           <div className="card-actions justify-center mb-4">
                             <button
                           
-                              onClick={(e) => {
-                                removeCartProduct(ele._id,ele.quantity ,ele.uuId , ele.price);
-                              }}
+                              onClick={()=>{removeCartProduct(ele._id,ele.quantity ,ele.uuId , ele.price)}}
                               className="btn   bg-neutral-content btn-outline focus:bg-neutral focus:text-neutral-content"
                             >
                               Remove
