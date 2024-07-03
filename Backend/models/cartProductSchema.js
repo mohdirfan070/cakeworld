@@ -1,17 +1,21 @@
 const mongoose = require('mongoose');
+const Cart = require('./cartSchema.js');
 const cartProductSchema = new mongoose.Schema({
-   productId:{
-    type:mongoose.Schema.Types.ObjectId,
-    ref:"Product",
-   },
-    quantity:{
-        type:String,
-        required:true,
-        default:1
+    username:{
+        type:String
     },
-    msg:{
-        type: String,
-        default:"no messege form customer"
+    mobileNumber:{
+        type:Number
+    },
+    cart:{
+        type:mongoose.Schema.ObjectId,
+        ref:'Cart'
+    },
+    utr:{
+        type:String
+    },
+    orderTime:{
+        type:Date()
     }
 }, { timestamps: true });
 
