@@ -21,14 +21,14 @@ export default function Cart() {
   const cartId = localStorage.getItem("cartId") || false;
   // let [qrurl,setQrurl]=useState("");
 
-  const disablebtn = () => {
-    removeBtns.forEach((ele) => {
-      ele.classList.toggle("btn-disabled");
-    });
-    removeBtnsImg.forEach((ele) => {
-      ele.classList.toggle("opacity-40");
-    });
-  };
+  // const disablebtn = () => {
+  //   removeBtns.forEach((ele) => {
+  //     ele.classList.toggle("btn-disabled");
+  //   });
+  //   removeBtnsImg.forEach((ele) => {
+  //     ele.classList.toggle("opacity-40");
+  //   });
+  // };
 
   const getUser = async () => {
     await axios
