@@ -32,7 +32,7 @@ export default function Cart() {
 
   const getUser = async () => {
     await axios
-      .post("https://cakeworld-production.up.railway.app/api/getuserdata", { username, password })
+      .post("https://cakeworld.onrender.com/api/getuserdata", { username, password })
       .then((result) => {
         //  console.log(result.data);
         userMobileNumber.current = result.data.mobileNumber;
@@ -59,7 +59,7 @@ export default function Cart() {
       newproductPrice,
     };
     await axios
-      .post("https://cakeworld-production.up.railway.app/api/removecartproduct", givenData).then((result)=>{
+      .post("https://cakeworld.onrender.com/api/removecartproduct", givenData).then((result)=>{
         
       })
      
@@ -68,7 +68,7 @@ export default function Cart() {
 
   const fetchCartProducts = async () => {
     await axios
-      .post(`https://cakeworld-production.up.railway.app/api/getcartproducts`, {
+      .post(`https://cakeworld.onrender.com/api/getcartproducts`, {
         username,
         cartId,
       })

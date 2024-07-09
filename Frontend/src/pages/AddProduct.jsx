@@ -48,7 +48,7 @@ export default function AddProduct() {
     } else {
       // console.log(inpData);
       let result = await axios.post(
-        "https://cakeworld-production.up.railway.app/api/addproduct",
+        "https://cakeworld.onrender.com/api/addproduct",
         inpData
       );
       // console.log(result);
