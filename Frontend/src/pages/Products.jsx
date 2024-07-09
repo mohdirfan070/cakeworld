@@ -14,7 +14,7 @@ export default function Products() {
   // const audio = new Audio(Sound);
 
   const fetchProducts = async () => {
-    let result = await axios.get("http://localhost:8080/api/products");
+    let result = await axios.get("https://cakeworld-production.up.railway.app//api/products");
     let arr = result.data;
     setGotData([...arr]);
     // audio.play();
@@ -49,7 +49,7 @@ export default function Products() {
       // console.log(userData);
       try {
         await axios
-          .post("http://localhost:8080/api/additemtocart", userData)
+          .post("https://cakeworld-production.up.railway.app//api/additemtocart", userData)
           .then((result) => {
             //  console.log(result.data);
             play();

@@ -22,7 +22,7 @@ export default function Profile() {
     if(localStorage.getItem("username")){
       let  username  = localStorage.getItem("username");
       let result = await axios.post(
-        "http://localhost:8080/api/getuserprofile",
+        "https://cakeworld-production.up.railway.app//api/getuserprofile",
        { username}
       );
       // console.log(result.data);
@@ -72,7 +72,7 @@ export default function Profile() {
       setError(true);
       return null;
     } else {
-       let result = await axios.put("http://localhost:8080/api/updateuser" , user ) ;
+       let result = await axios.put("https://cakeworld-production.up.railway.app//api/updateuser" , user ) ;
       //  console.log(result);
       // console.log(user);
       setEdit(false);

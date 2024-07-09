@@ -94,7 +94,7 @@ export default function Login() {
       //  console.log(inpData);
       // s://cakeworld.onrender.com
       let result = await axios.post(
-        "http://localhost:8080/api/signup",
+        "https://cakeworld-production.up.railway.app//api/signup",
         inpData
       );
       setLogin(true);
@@ -124,7 +124,7 @@ export default function Login() {
       //  console.log(inpData);
       // s://cakeworld.onrender.com
       let result = await axios.post(
-        "http://localhost:8080/api/login",
+        "https://cakeworld-production.up.railway.app//api/login",
         inpData
       );
       setLogin(true);
