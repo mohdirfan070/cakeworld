@@ -174,19 +174,19 @@ export default function Profile() {
                     src={user.profileImg}
                     alt="Profile Image"
                   />
-                  <h2 className="my-2 font-medium btn h-min w-full text-sm ">
+                  <h2 className="my-2 font-medium btn h-min w-full text-sm rounded-md ">
                     Name: {user.name}{" "}
                   </h2>
-                  <h2 className="my-2 font-medium btn h-min w-full text-sm ">
+                  <h2 className="my-2 font-medium btn h-min w-full text-sm rounded-md">
                     Username: {user.username}{" "}
                   </h2>
-                  <h2 className="my-2 font-medium btn h-min w-full text-sm ">
+                  <h2 className="my-2 font-medium btn h-min w-full text-sm rounded-md">
                     Mobile Number: {user.mobileNumber}{" "}
                   </h2>
-                  <h2 className="my-2 font-medium btn h-24 w-full  text-sm ">
+                  <h2 className="my-2 font-medium btn h-24 w-full  text-sm rounded-md">
                     Address: {user.address}{" "}
                   </h2>
-                  <h2 className="my-2 font-medium btn h-min w-full text-sm ">
+                  <h2 className="my-2 font-medium btn h-min w-full text-sm rounded-md">
                     Pincode: {user.pincode}{" "}
                   </h2>
 
